@@ -79,7 +79,11 @@ p,li,dd{text-wrap:pretty}
 .lang button{font:500 12px/1 var(--mono);letter-spacing:.06em;padding:9px 10px;background:transparent;color:var(--ink);border:0;cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .lang button:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px}
-@media (max-width:720px){.lang{order:2;margin-left:auto}.tabs{order:3;width:100%;margin-left:0}}
+.ctrl{display:flex;gap:8px;align-items:center}
+.theme{display:inline-grid;place-items:center;width:34px;height:34px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;padding:0}
+.theme svg{width:16px;height:16px}
+.theme:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px}
+@media (max-width:720px){.ctrl{order:2;margin-left:auto}.tabs{order:3;width:100%;margin-left:0}}
 
 main{padding-block:48px 80px}
 
@@ -254,6 +258,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
 <style>html,body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
 </head>
 <body>
+
+<script>try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#inicio" aria-label="Hugo Ceni, ByDkHappy, início">
@@ -265,7 +271,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
       <a class="tab" href="#design" data-tab="design"><i class="shape ci" aria-hidden="true"></i><span class="tl-txt">Design e Social</span></a>
       <a class="tab" href="#games" data-tab="games"><i class="shape tr" aria-hidden="true"></i>Games</a>
     </nav>
-    <div class="lang" role="group" aria-label="Idioma"><button type="button" data-lang="pt" aria-pressed="true">PT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+    <div class="ctrl"><div class="lang" role="group" aria-label="Idioma"><button type="button" data-lang="pt" aria-pressed="true">PT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div><button class="theme" id="theme" type="button" aria-label="Modo escuro"></button></div>
   </div>
 </header>
 
@@ -1267,7 +1273,7 @@ CASES: {
 };
 
 const UI = {
-pt:{sig:'ByDkHappy · Design que facilita e diverte', title:'Hugo Ceni · Designer de UX/UI, marcas e jogos', navAria:'Trilhas do portfólio', designTab:'Design e Social', langAria:'Idioma',
+pt:{toDark:'Ativar modo escuro', toLight:'Ativar modo claro', sig:'ByDkHappy · Design que facilita e diverte', title:'Hugo Ceni · Designer de UX/UI, marcas e jogos', navAria:'Trilhas do portfólio', designTab:'Design e Social', langAria:'Idioma',
  contactAria:'Contato', contactLabel:'Contato', contactTitle:'Bora conversar?', contactText:'Aberto a vagas presenciais no Rio, remotas e PJ.', copy:'Copiar e-mail', copied:'E-mail copiado', selected:'Selecionado, use Ctrl+C',
  h1:['Interfaces','marcas','e jogos'], heroP:'Sou o Hugo, designer formado pela PUC-Rio. Meu ponto forte é achar onde um sistema falha e resolver rápido, seja num app, numa marca ou numa mesa de jogo. Gosto de design funcional e feito com carinho, que ninguém precisa de ajuda para usar. Escolha a trilha que conversa com a sua vaga.',
  photoAlt:'Hugo sorrindo em frente a um mosaico colorido', whyLabel:'Por que ByDkHappy?', whyText:'DK era o nome de um time que eu tinha com uns amigos, e a sigla ficou comigo: soa bem e funciona como um Design Kit. Happy é o nome do meu gato, que ganhou o nome do gato de Fairy Tail.',
@@ -1285,7 +1291,7 @@ pt:{sig:'ByDkHappy · Design que facilita e diverte', title:'Hugo Ceni · Design
  langLabel:'Idiomas', langs:'Português nativo · Inglês avançado · Espanhol básico',
  trackLabel:'Trilha', secretH:'Sob sigilo', secretNote:'<strong>Proativa Capital.</strong> Comecei com cada peça aprovada pela gestora de marketing. Em um mês, ela já confiava em mim para liderar os projetos e só aprovar o essencial; quando ela saiu, minhas aprovações passaram a ir direto para o CEO, que algumas vezes me chamou só para elogiar um trabalho. Além dos projetos acima, criei com a equipe o nome e a identidade de 3 marcas novas e cerca de 5 namings. Essas marcas ainda não foram lançadas e entram aqui depois do lançamento.',
  back:'← Trilha', resumoAria:'Resumo do projeto', did:'O que eu fiz', result:'Resultado', watch:'Assista', nota:'Nas minhas palavras', ficha:'Ficha técnica', fichaAria:'Ficha do projeto', play:'Jogar no navegador', deeper:'Para se aprofundar', prev:'← Anterior', next:'Próximo →', nextAria:'Outros projetos da trilha', video:'Vídeo'},
-en:{sig:'ByDkHappy · Design that makes things easier and more fun', title:'Hugo Ceni · UX/UI, brand and game designer', navAria:'Portfolio tracks', designTab:'Design & Social', langAria:'Language',
+en:{toDark:'Switch to dark mode', toLight:'Switch to light mode', sig:'ByDkHappy · Design that makes things easier and more fun', title:'Hugo Ceni · UX/UI, brand and game designer', navAria:'Portfolio tracks', designTab:'Design & Social', langAria:'Language',
  contactAria:'Contact', contactLabel:'Contact', contactTitle:'Let\'s talk', contactText:'Open to on-site roles in Rio, remote roles and freelance contracts.', copy:'Copy email', copied:'Email copied', selected:'Selected, press Ctrl+C',
  h1:['Interfaces','brands','and games'], heroP:'I\'m Hugo, a designer with a degree from PUC-Rio. My strength is spotting where a system breaks and fixing it fast, whether it\'s an app, a brand or a game table. I like functional design made with care, the kind nobody needs help to use. Pick the track that matches your role.',
  photoAlt:'Hugo smiling in front of a colorful mosaic', whyLabel:'Why ByDkHappy?', whyText:'DK was the name of a team I had with some friends, and the initials stuck with me: they sound good and work like a Design Kit. Happy is my cat\'s name, after the cat from Fairy Tail.',
@@ -1322,6 +1328,7 @@ function applyLang(){
   document.documentElement.lang = LANG === 'en' ? 'en' : 'pt-BR';
   document.title = U.title;
   document.getElementById('sig').textContent = U.sig;
+  paintTheme();
   document.querySelector('.tabs').setAttribute('aria-label', U.navAria);
   document.querySelector('.tab[data-tab="design"] .tl-txt').textContent = U.designTab;
   const g = document.querySelector('.lang'); g.setAttribute('aria-label', U.langAria);
@@ -1519,10 +1526,26 @@ document.querySelector('.lang').addEventListener('click', e => {
   const y = window.scrollY; applyLang(); route(); window.scrollTo(0, y);
 });
 
+const MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>';
+const SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>';
+const darkMQ = window.matchMedia ? matchMedia('(prefers-color-scheme: dark)') : null;
+function isDark(){ const t = document.documentElement.getAttribute('data-theme'); return t ? t === 'dark' : !!(darkMQ && darkMQ.matches); }
+function paintTheme(){
+  const b = document.getElementById('theme'); if (!b) return;
+  const d = isDark(); b.innerHTML = d ? SUN : MOON; b.setAttribute('aria-label', d ? U.toLight : U.toDark); b.title = b.getAttribute('aria-label');
+  const m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute('content', d ? '#131418' : '#F3EEE4');
+}
+document.getElementById('theme').addEventListener('click', () => {
+  const next = isDark() ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  try { localStorage.setItem('theme', next); } catch (e) {}
+  paintTheme();
+});
+if (darkMQ && darkMQ.addEventListener) darkMQ.addEventListener('change', paintTheme);
+
 window.addEventListener('hashchange', route);
 applyLang();
 route();
 </script>
-
 </body>
 </html>
