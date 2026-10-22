@@ -1,0 +1,1528 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hugo Ceni · Designer de UX/UI, marcas e jogos</title>
+<meta name="description" content="Portfólio de Hugo Ceni, designer formado pela PUC-Rio. Design que facilita e diverte: UX/UI, marcas, social media e jogos. Em português e inglês.">
+<meta name="author" content="Hugo Ferreira Ceni de Almeida">
+<link rel="canonical" href="https://hugo-ceni.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hugo-ceni.github.io/">
+<meta property="og:title" content="Hugo Ceni · Designer de UX/UI, marcas e jogos">
+<meta property="og:description" content="Design que facilita e diverte. Interfaces, marcas e jogos, com pesquisa, processo e resultado.">
+<meta property="og:image" content="https://hugo-ceni.github.io/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F3EEE4">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;600;800&family=Funnel+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* ByDkHappy · paleta Azulejo do Catete. Três formas, três trilhas: quadrado = UX, círculo = Design, triângulo = Games. */
+:root{
+  --paper:#F3EEE4; --surface:#FBF8F2; --ink:#16161A; --muted:#5E5A52; --line:#D8CFBF; --line-strong:#16161A;
+  --ux:#2347D8; --ux-ink:#2347D8; --ux-tint:#DFE5FA;
+  --design:#E0552B; --design-ink:#B23F18; --design-tint:#F8DDD2;
+  --games:#1E8A5E; --games-ink:#17704C; --games-tint:#D5ECDF;
+  --accent:var(--ink); --accent-ink:var(--ink); --accent-tint:#E6DFD2;
+  --display:"Funnel Display", "Arial Black", Arial, sans-serif;
+  --body:"Funnel Sans", "Segoe UI", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131418; --surface:#1B1C21; --ink:#F1ECE2; --muted:#A9A397; --line:#2F3038; --line-strong:#F1ECE2;
+    --ux:#7C95FF; --ux-ink:#9CAEFF; --ux-tint:#1D2547; --design:#FF7A4D; --design-ink:#FF9670; --design-tint:#3A2018;
+    --games:#45C690; --games-ink:#66D6A6; --games-tint:#132E23; --accent-tint:#24252B; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131418; --surface:#1B1C21; --ink:#F1ECE2; --muted:#A9A397; --line:#2F3038; --line-strong:#F1ECE2;
+  --ux:#7C95FF; --ux-ink:#9CAEFF; --ux-tint:#1D2547; --design:#FF7A4D; --design-ink:#FF9670; --design-tint:#3A2018;
+  --games:#45C690; --games-ink:#66D6A6; --games-tint:#132E23; --accent-tint:#24252B; color-scheme:dark;
+}
+body[data-track="ux"]{--accent:var(--ux);--accent-ink:var(--ux-ink);--accent-tint:var(--ux-tint)}
+body[data-track="design"]{--accent:var(--design);--accent-ink:var(--design-ink);--accent-tint:var(--design-tint)}
+body[data-track="games"]{--accent:var(--games);--accent-ink:var(--games-ink);--accent-tint:var(--games-tint)}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--paper)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.02;font-weight:800;letter-spacing:-.02em}
+p,li,dd{text-wrap:pretty}
+.wrap{max-width:1180px;margin:0 auto}
+.mono{font-family:var(--mono)}
+.label{font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.shape{display:inline-block;width:.72em;height:.72em;flex:0 0 auto}
+.sq{background:var(--ux)} .ci{background:var(--design);border-radius:50%} .tr{background:var(--games);clip-path:polygon(50% 0,100% 100%,0 100%)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:var(--paper);border-bottom:2px solid var(--line-strong)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;padding-block:14px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.seal{display:flex;gap:3px;font-size:18px}
+.brand b{font:800 20px/1 var(--display);letter-spacing:-.02em}
+.brand small{font:500 11px var(--mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tab{display:flex;align-items:center;gap:8px;font:600 14px/1 var(--body);text-decoration:none;padding:10px 12px;border:1.5px solid transparent}
+.tab .shape{font-size:14px}
+.tab:hover{border-color:var(--line)}
+.tab[aria-current="page"]{border-color:var(--ink)}
+.tabs{margin-left:auto}
+.lang{display:flex;border:1.5px solid var(--ink)}
+.lang button{font:500 12px/1 var(--mono);letter-spacing:.06em;padding:9px 10px;background:transparent;color:var(--ink);border:0;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.lang button:focus-visible{outline:2px solid var(--accent-ink);outline-offset:2px}
+@media (max-width:720px){.lang{order:2;margin-left:auto}.tabs{order:3;width:100%;margin-left:0}}
+
+main{padding-block:48px 80px}
+
+/* home */
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:48px;align-items:center;padding-bottom:56px;border-bottom:2px solid var(--line-strong)}
+.hero h1{font-size:clamp(46px,7.4vw,96px);margin:14px 0 22px}
+.hero h1 .ln{display:block;white-space:nowrap}
+.hero h1 .shape{font-size:.5em;vertical-align:.12em;margin-left:.08em}
+.hero p{font-size:19px;color:var(--muted);max-width:52ch;margin:0}
+.hero .why{display:flex;gap:16px;align-items:center;margin-top:26px;max-width:600px}
+.hero .why img{width:120px;height:120px;object-fit:cover;flex:0 0 auto;border-radius:50%;border:2px solid var(--line-strong)}
+.hero .why p{font-size:15px;margin:0}
+.hero .why .label{display:block;margin-bottom:4px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--line-strong);max-width:100%;aspect-ratio:1}
+.tile{all:unset;cursor:pointer;aspect-ratio:1;position:relative;border:1px solid var(--line);transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
+.tile svg{width:100%;height:100%;display:block}
+.tile:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+.tiles-cap{margin-top:10px;display:flex;justify-content:space-between;gap:12px}
+.rows{display:grid}
+.row{display:grid;grid-template-columns:72px minmax(0,1fr) minmax(0,1.2fr) 40px;gap:24px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.row:hover h2{color:var(--rc)}
+.row .n{font:500 14px var(--mono);color:var(--muted)}
+.row h2{display:flex;align-items:center;gap:14px;font-size:clamp(30px,4vw,48px);transition:color .2s}
+.row h2 .shape{font-size:.6em}
+.row p{margin:0;color:var(--muted)}
+.row .arrow{font:600 24px var(--display);color:var(--rc);transition:transform .2s}
+.row:hover .arrow{transform:translateX(6px)}
+.row[data-p="ux"]{--rc:var(--ux-ink)} .row[data-p="design"]{--rc:var(--design-ink)} .row[data-p="games"]{--rc:var(--games-ink)}
+
+/* track */
+.thero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;padding-bottom:36px;border-bottom:2px solid var(--line-strong)}
+.thero h1{font-size:clamp(38px,6vw,76px);margin:12px 0 18px}
+.thero h1 em{font-style:normal;color:var(--accent-ink)}
+.thero p{margin:0;font-size:18px;color:var(--muted);max-width:60ch}
+.big{width:clamp(90px,14vw,180px);height:clamp(90px,14vw,180px);background:var(--accent)}
+body[data-track="design"] .big{border-radius:50%}
+body[data-track="games"] .big{clip-path:polygon(50% 0,100% 100%,0 100%)}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.fact{font:500 13px var(--mono);padding:6px 10px;border:1.5px solid var(--ink)}
+.list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px}
+.list.small{grid-template-columns:repeat(4,minmax(0,1fr))}
+.list.small h3{font-size:24px}
+.item{display:grid;gap:14px;align-content:start;padding:32px 0;border-bottom:1px solid var(--line);text-decoration:none;min-width:0}
+.item .media{position:relative;aspect-ratio:1;overflow:hidden;background:var(--accent-tint);max-width:100%;border:1.5px solid var(--ink)}
+.vtag{position:absolute;z-index:1;left:10px;top:10px;font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;background:var(--paper);border:1.5px solid var(--ink)}
+.item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.item:hover img{transform:scale(1.03)}
+.item .meta{display:flex;justify-content:space-between;gap:12px;font:500 13px var(--mono);color:var(--muted)}
+.item .meta b{color:var(--accent-ink);font-weight:500}
+.item h3{font-size:28px}
+.item:hover h3{color:var(--accent-ink)}
+.item p{margin:0;color:var(--muted)}
+.sub{display:flex;align-items:center;gap:12px;margin:56px 0 4px}
+.sub h2{font-size:24px}
+.sub::after{content:"";flex:1;height:2px;background:var(--line-strong)}
+.note{margin-top:20px;padding:20px 22px;border:1.5px dashed var(--muted);color:var(--muted);max-width:760px}
+.note strong{color:var(--ink)}
+
+/* case */
+.back{display:inline-flex;gap:8px;align-items:center;font:600 14px var(--body);text-decoration:none;color:var(--muted);margin-bottom:28px}
+.back:hover{color:var(--ink)}
+.chead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding-bottom:28px}
+.chead h1{font-size:clamp(42px,7vw,88px);margin:10px 0 12px}
+.chead p{margin:0;font-size:20px;color:var(--muted);max-width:50ch}
+.chead .num{font:800 clamp(56px,9vw,120px)/.8 var(--display);color:var(--accent);letter-spacing:-.04em}
+.himg{border:2px solid var(--line-strong);background:var(--surface)}
+.himg img{display:block;width:100%;max-height:640px;object-fit:contain}
+.cbody{display:grid;grid-template-columns:minmax(0,270px) minmax(0,1fr);gap:56px;margin-top:44px;align-items:start}
+.ficha{position:sticky;top:calc(env(safe-area-inset-top, 0px) + 92px);border-top:4px solid var(--accent);padding-top:16px;display:grid;gap:16px}
+.ficha dl{margin:0;display:grid;gap:14px}
+.ficha dd{margin:3px 0 0;font-size:15px;line-height:1.45}
+.ficha .links{display:grid;gap:10px;align-content:start;padding-top:14px;border-top:1px solid var(--line)}
+.ficha .links a{font:600 15px var(--body);color:var(--accent-ink);text-decoration:none}
+.ficha .links a:hover{text-decoration:underline}
+.story{display:grid;gap:48px;min-width:0}
+.story section{display:grid;gap:14px}
+.story h2{font-size:30px;display:flex;align-items:center;gap:12px}
+.story h2 .shape{font-size:.5em}
+.story p{margin:0;font-size:18px;max-width:64ch}
+.steps{list-style:none;margin:0;padding:0;display:grid;counter-reset:s;border-top:1px solid var(--line)}
+.steps li{display:grid;grid-template-columns:56px minmax(0,1fr);gap:12px;padding:18px 0;border-bottom:1px solid var(--line)}
+.steps li::before{counter-increment:s;content:counter(s, decimal-leading-zero);font:500 14px/1.7 var(--mono);color:var(--accent-ink)}
+.steps strong{display:block;font-size:18px;font-family:var(--display);font-weight:600}
+.steps span{display:block;color:var(--muted);max-width:62ch}
+.stepimgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+.stepimgs img{width:100%;display:block;border:1.5px solid var(--ink);background:var(--surface)}
+.tbl{display:grid;gap:8px;margin-top:6px}
+.tblwrap{overflow-x:auto;border:2px solid var(--line-strong)}
+.tbl table{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px}
+.tbl th{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;text-align:left;padding:10px 12px;background:var(--accent-tint);border-bottom:1.5px solid var(--ink)}
+.tbl td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+.tbl tr:last-child td{border-bottom:0}
+.trail{margin-top:72px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px}
+.trail h2{font-size:clamp(28px,3.6vw,40px);margin:6px 0 18px}
+.tl{list-style:none;margin:0;padding:0;border-top:2px solid var(--line-strong)}
+.tl li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.tl .when{font:500 13px/1.5 var(--mono);color:var(--muted)}
+.tl strong{display:block;font:600 18px/1.3 var(--display)}
+.tl span{display:block;color:var(--muted);font-size:15px}
+.side{display:grid;gap:24px;align-content:start}
+.side .label{display:block;margin-bottom:8px}
+.side p{margin:0;font-size:15px}
+.side p a{color:var(--ink);text-decoration-color:var(--design);text-underline-offset:3px}
+.tools{display:flex;flex-wrap:wrap;gap:6px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));border:2px solid var(--line-strong)}
+.stat{padding:18px 20px;border-right:1px solid var(--line);display:grid;gap:4px}
+.stat:last-child{border-right:0}
+.stat b{font:800 34px/1.05 var(--display);letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--accent-ink)}
+.stat span{font-size:14px;color:var(--muted)}
+.resumo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:2px solid var(--line-strong);border-top:0}
+.resumo div{padding:16px 20px;border-right:1px solid var(--line);min-width:0}
+.resumo div:last-child{border-right:0}
+.resumo p{margin:6px 0 0;font-size:16px;line-height:1.45}
+.nota{margin:0;padding:18px 22px;background:var(--accent-tint);border-left:4px solid var(--accent);border-radius:0;max-width:64ch}
+.nota p{margin:6px 0 0;font:600 21px/1.4 var(--display);letter-spacing:-.01em}
+.vid{margin:0;display:grid;gap:8px}
+.vid video{width:100%;display:block;border:2px solid var(--line-strong);background:#000;aspect-ratio:16/9}
+.vid figcaption{font:400 13px var(--mono);color:var(--muted)}
+.vids{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:20px;align-items:start}
+.vid.v{max-width:360px}
+.vid.v video{aspect-ratio:9/16;max-height:640px;object-fit:contain}
+@media (max-width:720px){.vids{grid-template-columns:minmax(0,1fr)}}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.gallery figure{margin:0;display:grid;gap:8px;align-content:start;min-width:0}
+.gallery img{width:100%;display:block;border:1.5px solid var(--ink);background:var(--accent-tint)}
+.gallery figcaption{font:400 13px var(--mono);color:var(--muted)}
+.next{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:64px;padding-top:22px;border-top:2px solid var(--line-strong)}
+.next a{display:grid;gap:4px;text-decoration:none}
+.next a:last-child{text-align:right}
+.next b{font:800 26px var(--display);letter-spacing:-.02em}
+.next a:hover b{color:var(--accent-ink)}
+
+/* contact */
+.contact{margin-top:80px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding-top:28px;border-top:2px solid var(--line-strong)}
+.contact h2{font-size:clamp(32px,4.4vw,52px);margin-top:6px}
+.contact p{margin:10px 0 0;color:var(--muted)}
+.mascot{display:inline-grid;place-items:center;width:58px;height:58px;background:#111427;margin-bottom:14px}
+.mascot svg{width:44px;height:44px}
+.xp{margin-top:72px}
+.xp .intro{max-width:62ch;color:var(--muted);margin:8px 0 0}
+.xp h2{font:800 clamp(28px,3.6vw,40px)/1.05 var(--display);margin:6px 0 0;letter-spacing:-.01em}
+.contact .act{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:flex-end}
+.email{font:500 15px var(--mono);user-select:all;padding:10px 12px;background:var(--surface);border:1.5px solid var(--ink)}
+#play{display:inline-block;margin-top:14px}
+.btn{font:600 14px var(--body);padding:10px 14px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--ink);color:var(--paper)}
+footer{padding-block:24px 32px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:400 13px var(--mono);color:var(--muted)}
+
+@media (max-width:880px){
+  .hero,.thero,.chead,.contact{grid-template-columns:minmax(0,1fr)}
+  .hero{gap:32px}
+  .tiles{max-width:360px}
+  .row{grid-template-columns:44px minmax(0,1fr) 28px;gap:6px 12px}
+  .row p{grid-column:2 / 3}
+  .row .arrow{grid-row:1;grid-column:3}
+  .list,.list.small{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+  .item h3,.list.small h3{font-size:20px}
+  .item p{font-size:14px}
+  .gallery,.resumo,.trail{grid-template-columns:minmax(0,1fr)}
+  .tl li{grid-template-columns:minmax(0,1fr);gap:4px}
+  .resumo div{border-right:0;border-bottom:1px solid var(--line)}
+  .cbody{grid-template-columns:minmax(0,1fr);gap:32px}
+  .ficha{position:static}
+  .chead .num,.big{display:none}
+  .contact .act{justify-content:flex-start}
+  .stat{border-right:0;border-bottom:1px solid var(--line)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<style>html,body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Hugo Ceni, ByDkHappy, início">
+      <span class="seal" aria-hidden="true"><i class="shape sq"></i><i class="shape ci"></i><i class="shape tr"></i></span>
+      <span><b>Hugo Ceni</b><br><small>ByDkHappy</small></span>
+    </a>
+    <nav class="tabs" aria-label="Trilhas do portfólio">
+      <a class="tab" href="#ux" data-tab="ux"><i class="shape sq" aria-hidden="true"></i>UX/UI</a>
+      <a class="tab" href="#design" data-tab="design"><i class="shape ci" aria-hidden="true"></i><span class="tl-txt">Design e Social</span></a>
+      <a class="tab" href="#games" data-tab="games"><i class="shape tr" aria-hidden="true"></i>Games</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma"><button type="button" data-lang="pt" aria-pressed="true">PT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+  </div>
+</header>
+
+<main class="wrap" id="app"></main>
+
+<footer><div class="wrap"><span>Hugo Ferreira Ceni de Almeida · Rio de Janeiro</span><span id="sig">ByDkHappy · Design que facilita e diverte</span></div></footer>
+
+<script>
+const P = 'https://hugoceni.myportfolio.com/';
+const SHAPE = {ux:'sq', design:'ci', games:'tr'};
+
+const TRACKS_PT = {
+  ux: {
+    n:'01', name:'UX/UI',
+    title:'Apps que eu <em>pesquisei, prototipei e testei</em> com gente de verdade.',
+    line:'Pesquisa, modelagem de interação, protótipo e teste com usuários.',
+    intro:'Sou designer de UX/UI formado pela PUC-Rio e estou concluindo a pós em UX e Interação Humano-Computador. Pesquiso, modelo a interação, prototipo no Figma e valido com quem vai usar.',
+    facts:['Pós em UX e IHC · PUC-Rio','Entrevistas e personas','Avaliação heurística','Testes de usabilidade','Figma'],
+    labels:['O problema','Processo','Validação','Resultado'],
+    cases:['bo','gametime','mealmate','partiu']
+  },
+  design: {
+    n:'02', name:'Design e Social',
+    title:'Marcas, campanhas e perfis que eu <em>desenho e acompanho</em> de perto.',
+    line:'Identidade visual, campanhas, redes sociais e motion, sempre de olho nos números.',
+    intro:'Crio marcas, campanhas e conteúdo há mais de 3 anos. Na Proativa Capital, eu fazia toda a parte visual das 4 empresas do grupo: rebrandings, manuais de marca e de linguagem, telas, o visual do caminhão e um quiz gamificado. Em um mês já liderava os projetos, depois com aprovação direta do CEO. Hoje cuido da estratégia de perfis no Instagram e acompanho as métricas de perto.',
+    facts:['2 rebrandings','4 manuais de marca e linguagem','3 marcas novas sob sigilo','~5 namings','+67% de seguidores em 3 meses'],
+    labels:['O desafio','O que eu criei','Como acompanho','Resultado'],
+    cases:['glpgas','proativa','quiz32','maxgalore','icones','jacare','ticrj','proderj','toca'],
+    extra:{label:'Motion', cases:['jester','semcomb']}
+  },
+  games: {
+    n:'03', name:'Games',
+    title:'Fazer jogos sempre foi <em>o sonho</em>. Então eu faço.',
+    line:'Jogos digitais e de mesa, do GDD à interface, testados cedo e com frequência.',
+    intro:'Adoro criar histórias e mecânicas, e já mestrei várias mesas de RPG. No TCC, levei um jogo 2D em Unity do conceito ao Demo Day, e desde então crio jogos digitais e de mesa, do GDD à UI e à pixel art. Da UX, trago o hábito de testar cedo e ouvir o jogador.',
+    facts:['Unity e C#','GDD','Sistemas e economia','Narrativa e RPG','Pixel art','Playtests'],
+    labels:['A premissa','Como eu construí','Playtest','Resultado'],
+    cases:['maresea','colmeia','mestre','clicker','steamvapor'],
+    extra:{label:'Outros jogos e estudos', cases:['quiz32','gastro','shooter','lonestar','pixelart','solar','slime','khoros']}
+  }
+};
+
+const CASES_PT = {
+  bo: {
+    track:'ux', title:'Bo?', kicker:'App de roteiros de viagem com IA', img:'img/coverw_bo.webp', thumb:'img/cover_bo.webp', alt:'Capa do app Bo?, O Roteiro Inteligente, com Figma e draw.io',
+    ficha:[['Tipo','App mobile, MVP'],['Minha função','UX/UI designer, projeto solo'],['Contexto','Pós-graduação em UX e IHC, PUC-Rio'],['Ano','2025'],['Ferramentas','Figma, draw.io']],
+    resumo:['Planejar viagem toma horas entre abas e planilhas.','App com roteiros gerados por IA, do zero ou a partir de um roteiro pronto.','49 telas, 2 problemas críticos achados e corrigidos antes do teste.'],
+    problema:'Planejar uma viagem toma horas entre pesquisas, abas e planilhas. Quem viaja com calma quer um roteiro bem amarrado; quem decide em cima da hora quer um ponto de partida rápido. O Bo? usa IA para gerar roteiros personalizados por estilo, orçamento e interesses.',
+    processo:[
+      ['Personas e cenários','Duas personas guiaram o projeto: a viajante planejadora, que gasta tempo demais organizando tudo, e o viajante aventureiro, que decide de última hora.','img/bo_personas.webp'],
+      ['Modelagem de interação','Modelei as cenas do app com MoLIC, incluindo o porquê de cada decisão: definição de preferências, roteiro pronto e o planejamento completo de uma viagem, com os avisos que impedem o usuário de seguir sem dados suficientes.',['img/bo_molic2.webp','img/bo_molic3.webp']],
+      ['Identidade e protótipo','Identidade com a regra 60-30-10 (branco, azul-marinho e laranja de destaque) e protótipo navegável com 49 telas no Figma.']
+    ],
+    validacao:'Fiz uma avaliação heurística de 40 telas pelas heurísticas de Nielsen, com escala de severidade, e encontrei 2 problemas críticos que impediam concluir o fluxo principal. Depois conduzi testes de usabilidade com think aloud e questionário, com um piloto e 2 participantes de 23 a 50 anos.',
+    tabelas:[
+      {title:'Avaliação heurística: severidades críticas', head:['Local','Problema','Heurística violada','Severidade'], rows:[
+        ['Tela 14','Origem do voo assumida sem o usuário informar','H1 · Visibilidade do estado','4 · Catastrófica'],
+        ['Tela 24','Beco sem saída: falta botão de ação na revisão final','H1 · Visibilidade do estado','4 · Catastrófica'],
+        ['Tela 15','Texto "Selecionar ida" no voo de volta','H4 · Consistência e padrões','3 · Grave'],
+        ['Tela 31','Título "Você tem certeza?" com opções confusas','H5 · Prevenção de erros','3 · Grave']]},
+      {title:'Teste de usabilidade: o que os usuários mostraram', head:['Problema','Por que importa','Recomendação'], rows:[
+        ['Siglas técnicas de aeroporto','Aumenta o risco de erro na compra de passagens','Usar o nome da cidade por extenso'],
+        ['Navegação linear entre os dias','Dificulta editar um dia específico','Criar um índice ou visão geral'],
+        ['Divisão vaga em manhã e tarde','Gera insegurança no planejamento','Implementar faixas de horário']]}
+    ],
+    metrics:[['49','telas prototipadas'],['40','telas na avaliação heurística'],['4 e 5','de 5 em facilidade de uso']],
+    resultado:'Os achados viraram melhorias no roteiro, como uma visão geral dos dias e faixas de horário. A participante de 50 anos ainda sugeriu um visual mais lúdico, com fotos de pratos e dicas locais, que ficou como próximo passo.',
+    gallery:[['img/bo.webp','Telas em alta fidelidade: próxima viagem, roteiros prontos e o dia a dia'],['img/bo2.webp','Gerenciamento do roteiro: detalhes, sugestões da IA e edição diária']],
+    links:[['Testar o protótipo no Figma','https://www.figma.com/proto/FRBa0xI4MN87jIeDU8br4e/Aplicativo-BO?node-id=0-1&starting-point-node-id=1%3A96'],['Página antiga no Adobe Portfolio',P+'bo']]
+  },
+  gametime: {
+    track:'ux', title:'Gestão de tempo para jogadores', kicker:'Pesquisa qualitativa sobre como jogadores controlam o tempo de jogo', img:'img/coverw_gametime.webp', thumb:'img/cover_gametime.webp', alt:'Capa da pesquisa com a frase de um participante: começar a jogar pra mim é fácil, parar é mais difícil',
+    ficha:[['Tipo','Pesquisa de usuário para um MVP'],['Minha função','Pesquisador UX, projeto solo'],['Contexto','Pós-graduação em UX e IHC, PUC-Rio'],['Ano','2026'],['Métodos','Entrevistas semiestruturadas, piloto, TCLE, síntese, personas e cenários']],
+    resumo:['Jogadores sabem que jogam demais, mas saber não muda o comportamento.','4 entrevistas com piloto, roteiro revisado, síntese, 2 personas e 4 cenários de problema.','Direções claras para um MVP, como pontos de parada e dados de tempo real.'],
+    problema:'Jogadores jovens adultos têm dificuldade real de controlar o tempo que passam jogando, e não por falta de consciência. Os jogos usam mecânicas de retenção como passe de batalha, vidas ilimitadas e desafios diários, e as ferramentas de controle que existem são pouco usadas. O resultado é um ciclo de jogar mais do que queria, sentir culpa e repetir, que chega a afetar sono, trabalho e relacionamentos. A pesquisa parte do ODS 3 da ONU, Saúde e Bem-Estar.',
+    processo:[
+      ['Pergunta e recrutamento','Pergunta de pesquisa: como jogadores percebem, organizam e tentam controlar o tempo de jogo, e o que influencia isso? Recrutei 4 jogadores de 23 a 29 anos que jogam ao menos 3 vezes por semana, no celular e no PC, todos com TCLE assinado e identificados por código.'],
+      ['Piloto e ajuste do roteiro','A entrevista piloto mostrou perguntas que pediam informação demais de uma vez, respostas com exemplos antigos e exemplos genéricos sobre mecânicas. Dividi perguntas, reforcei o recorte no presente e incluí vidas ilimitadas e recompensas diárias, que a própria participante trouxe.'],
+      ['Entrevistas','Roteiro final com 12 perguntas em blocos de rotina, dificuldades e influências externas. Gravei em áudio, transcrevi tudo e anotei tom, hesitações e palavras que se repetiam.'],
+      ['Síntese e personas','Objetivos, obstáculos, estratégias e frases-chave de cada entrevistado viraram padrões, divergências e duas personas: Lucas, jogador competitivo de PC, e Ana, jogadora casual de celular.']
+    ],
+    validacao:'A consolidação comparou os quatro entrevistados em cada eixo e separou o que se repetia do que divergia.',
+    tabelas:[
+      {title:'Principais achados', head:['Padrão','O que os jogadores mostraram'], rows:[
+        ['Obrigações primeiro, jogo depois','Estratégia de quase todos, que depende só de força de vontade e desaba diante de um gatilho forte.'],
+        ['Difícil parar','Os jogos não oferecem pontos de parada naturais, e a noção de tempo se perde durante a sessão.'],
+        ['Ferramentas pouco usadas','Só 2 de 4 usam alguma, e os 2 relatam bons resultados. O problema é a adoção, não a eficácia.'],
+        ['Consciência não basta','Todos conhecem as mecânicas de retenção, mas isso não se traduz em mudança de comportamento.']]},
+      {title:'Cenários de problema', head:['Cenário','O que acontece'], rows:[
+        ['Só mais uma partida','Amigos chamando e partidas encadeadas fazem o tempo escapar.'],
+        ['Passe de batalha','O dinheiro investido transforma o lazer em obrigação.'],
+        ['Jogos sem fim','Vidas ilimitadas e desafios diários eliminam qualquer ponto de parada.'],
+        ['Desinstala e reinstala','Quando perde o controle, a saída é radical, num ciclo de tudo ou nada.']]}
+    ],
+    metrics:[['4','entrevistas, com piloto'],['12','perguntas no roteiro final'],['2 e 4','personas e cenários']],
+    resultado:'Direções para o MVP: controle integrado ao contexto do jogo, pontos de parada naturais, feedback de tempo real contra o tempo percebido e organização do dia com lógica de jogo, ideia que veio de um participante que tentou planejar a rotina como no Stardew Valley. A amostra é pequena e do meu círculo social, então os achados orientam o MVP, mas não são generalizáveis.',
+    nota:'Os jogadores sabem que estão sendo retidos. O problema é que saber não é suficiente para mudar o comportamento.',
+    links:[['Relatório e materiais no GitHub','https://github.com/hugo-ceni/mvp-gestao-tempo-jogos']]
+  },
+  mealmate: {
+    track:'ux', title:'Meal Mate', kicker:'App de receitas, lista de compras e plano semanal', img:'img/meal.webp', alt:'Wireframes do Meal Mate organizados em fluxo',
+    ficha:[['Tipo','App mobile'],['Minha função','Lead designer: navegação, UI e prototipagem'],['Equipe','Hugo Ceni e Laila Rebelo'],['Ano','2024'],['Ferramentas','Miro, Figma']],
+    resumo:['Receitas, compras e despensa ficam espalhadas em vários lugares.','Arquitetura, navegação e a maior parte da interface do app.','Fluxo final ajustado a partir de testes com estudantes.'],
+    problema:'Cozinhar a semana inteira passa por achar receitas, montar a lista de compras e lembrar do que já tem em casa. O Meal Mate reúne essas tarefas em telas como Receitas, Minha Copa, Lista de Compras e Plano Semanal.',
+    processo:[
+      ['Ideação em dupla','Organizamos ideias e pesquisas no Miro, com orientação do professor, usando card sorting, user story map e esboços do app.'],
+      ['Arquitetura e navegação','Estruturei sozinho a arquitetura de informação e os fluxos de navegação do app.'],
+      ['Interface e protótipo','Desenvolvi a maior parte da interface e das interações em alta fidelidade no Figma.']
+    ],
+    validacao:'Testamos com outras pessoas e avaliamos os resultados. Os testes ajudaram a refinar a usabilidade e chegar a um protótipo que mostra o que o Meal Mate poderia vir a ser.',
+    links:[['Testar o protótipo no Figma','https://www.figma.com/proto/c0ppb9q2BaawoXH1WuAugH/PROTOTIPAGEM-MEAL-MATE?node-id=0-1&starting-point-node-id=38%3A2962'],['Página antiga no Adobe Portfolio',P+'meal-mate']]
+  },
+  partiu: {
+    track:'ux', title:'Partiu?', kicker:'App gamificado de mobilidade urbana', img:'img/coverw_partiu.webp', thumb:'img/cover_partiu.webp', alt:'Logo do Partiu? sobre mapa de ruas, com Figma, Miro, Illustrator e Premiere',
+    ficha:[['Tipo','App e campanha'],['Minha função','Product designer com o time e motion designer do vídeo'],['Equipe','Hugo, Maria Fernanda e Yasmin'],['Ano','2021'],['Ferramentas','Figma, Illustrator, Google Forms, Photoshop, After Effects, Miro']],
+    resumo:['Na pandemia, mais gente passou a pedalar num trânsito hostil.','App com rotas, ranking entre amigos e dicas de segurança, mais o vídeo do projeto.','Pesquisa com 63 respostas e 4 entrevistas guiando as decisões.'],
+    problema:'Na pandemia, 83,5% das pessoas passaram a se sentir inseguras no transporte coletivo, e o uso de bicicletas e caminhadas cresceu 31,6%. A infraestrutura e a educação no trânsito não acompanharam, e quem começava a pedalar encontrava um ambiente hostil.',
+    processo:[
+      ['Pesquisa','Questionário com 63 respostas, 4 entrevistas com usuários de transporte alternativo e jornada do usuário.',['img/partiu_survey.webp','img/partiu_journey.webp']],
+      ['Ideação','Dinâmica de ideias no Miro, agrupadas em app, jogo, cartazes e produtos.','img/partiu_miro.webp'],
+      ['Protótipo','App no estilo Waze para bicicleta, patinete e skate, com rotas, ranking entre amigos, conquistas e dicas de segurança.']
+    ],
+    validacao:'Testamos o protótipo no celular com o Figma Mirror para conferir o tamanho dos elementos e o fluxo de interação.',
+    metrics:[['63','respostas no questionário'],['4','entrevistas'],['83,5%','inseguros no transporte coletivo']],
+    resultado:'Sistema com app, identidade, cartazes e produtos, apresentado num vídeo explicativo que eu editei e animei.',
+    nota:'Na época eu ainda estava aprendendo UX na faculdade. Montamos as telas juntos, e foi ali que o processo começou a fazer sentido para mim.',
+    video:['vid/partiu.mp4','Vídeo do projeto, editado e animado por mim'],
+    gallery:[['img/partiu.webp','Rota no mapa, ranking entre amigos e confirmação do meio de transporte'],['img/partiu_telas1.webp','Telas de perfil, newsletter, conquistas e avatar'],['img/partiu_telas2.webp','Fluxo de cadastro, escolha do transporte e personalização'],['img/partiu_placas.webp','Placas da campanha'],['img/partiu_prod.webp','Mockups de produtos']],
+    links:[['Relatório completo (PDF)','https://drive.google.com/file/d/1BLrmnEOK3nQP0FmUGUeJVtjwyYCsRudN/view?usp=sharing'],['Página antiga no Adobe Portfolio',P+'partiu']]
+  },
+  glpgas: {
+    track:'design', title:'GLP Gás', kicker:'Rebranding e sistema de marca de uma distribuidora de gás com 31 anos de mercado', img:'img/coverw_glp.webp', thumb:'img/cover_glp.webp', alt:'Crachá, capacete, camiseta, cartões e manual de marca com a nova identidade da GLP Gás',
+    ficha:[['Tipo','Rebranding, Proativa Capital'],['Minha função','Designer da identidade, dos manuais e das aplicações'],['Empresa','GLP Gás, distribuidora B2B de gás a granel'],['Ano','2026'],['Entregas','Manual de marca, manual de tom de voz e linguagem, manual do funcionário, visual do caminhão e peças']],
+    resumo:['Uma empresa de 31 anos em crescimento, sem um sistema que segurasse a marca em todos os pontos de contato.','Rebranding com manual de marca, manual de linguagem, manual do funcionário e aplicações, do crachá ao caminhão.','Marca em uso nas peças da empresa e base visual do Quiz 32 anos.'],
+    problema:'A GLP Gás é a empresa âncora do grupo: 31 anos de mercado e a 8ª maior distribuidora de gás a granel do Brasil. Ela vivia uma fase de crescimento e mudança de cultura, e a marca precisava acompanhar isso com consistência no uniforme, no site, no WhatsApp e no caminhão. Também faltava um jeito único de escrever, porque cada setor falava com o cliente de um jeito.',
+    processo:[
+      ['Logo e versões','Organizei o sistema da marca a partir da gota de fogo: versões com e sem slogan, compacta, vertical, só o símbolo e a variação GLP Saúde, com área de proteção, tamanho mínimo e usos incorretos.','img/glp_versoes.webp'],
+      ['Cor, tipografia e elementos de apoio','Azul institucional, azul energia e verde de destaque, Bebas Neue nos títulos e Gotham nos textos. Criei stickers e selos como #IssoÉGLP, Eu sou GLP Gás e Pode contar com a gente, que dão personalidade às peças.',['img/glp_paleta.webp','img/glp_apoio.webp']],
+      ['Tom de voz e linguagem','Um manual para que o marketing, o site, o SAC e o WhatsApp soem como a mesma empresa: arquétipos Pessoa Comum e Cuidador, vocabulário, o que evitar, um tradutor de frases corporativas e regras de UX writing para as interfaces.',['img/glp_voz.webp','img/glp_tradutor.webp']],
+      ['Manual do funcionário','Levei a identidade para dentro da empresa num manual de boas-vindas com cultura, segurança, benefícios e conduta, no mesmo visual da marca.',['img/glp_func1.webp','img/glp_func2.webp','img/glp_func3.webp']],
+      ['Aplicações','Uniforme, crachá, capacete, brindes, site, redes sociais, sinalização e o visual do caminhão da frota.']
+    ],
+    validacao:'Tudo passava pela aprovação direta do CEO. Quase tudo o que eu entregava era aprovado e bem avaliado, e algumas vezes o próprio dono da empresa me chamou para elogiar o trabalho.',
+    metrics:[['44','páginas no manual de marca'],['19','páginas no manual de linguagem'],['16','páginas no manual do funcionário']],
+    resultado:'A marca ganhou regras claras para qualquer pessoa aplicar, do cartaz no mural ao caminhão, e virou a base do Quiz 32 anos.',
+    nota:'Eu fazia toda a parte visual de todas as empresas do grupo. Mesmo com pouco tempo de casa, as pessoas reconheciam o meu conhecimento técnico e a minha organização.',
+    videos:[['vid/glp_manual.mp4','Manual do funcionário impresso','img/poster_glp_manual.webp',1]],
+    gallery:[['img/glp_brindes.webp','Brindes, copos e stickers'],['img/glp_site.webp','Site com a nova identidade'],['img/glp_social.webp','Posts e perfil nas redes'],['img/glp_sinal.webp','Sinalização interna']]
+  },
+  proativa: {
+    track:'design', title:'Proativa Capital', kicker:'Rebranding e manuais da empresa de serviços de um grupo de 4 empresas', img:'img/coverw_proativa.webp', thumb:'img/cover_proativa.webp', alt:'Crachá, cordão, pasta e manual de marca com a identidade azul-marinho e dourada da Proativa Capital',
+    ficha:[['Tipo','Rebranding, Proativa Capital'],['Minha função','Designer da identidade, dos manuais, dos vídeos e das aplicações'],['Empresa','Proativa Capital, BPO do grupo'],['Ano','2026'],['Entregas','Nova logo, manual de marca, manual de tom de voz e linguagem, animação da logo, vídeos para tela, media kit do fundador e peças']],
+    resumo:['Uma empresa nova que precisava definir cultura e identidade antes de crescer.','Nova logo com defesa conceitual, manual de marca, manual de tom de voz, animação da logo, vídeos para a tela da recepção e o media kit do fundador.','Uma marca-mãe que conversa com as outras empresas do grupo.'],
+    problema:'A Proativa Capital centraliza marketing, finanças, jurídico, TI e RH para um grupo que inclui a GLP Gás, a Simeão Advogados e a Capital Empreendimentos. A empresa estava no começo e queria construir a cultura de forma intencional, para que a cultura guiasse o crescimento, e não o contrário. A marca precisava passar autoridade técnica sem perder o lado humano.',
+    processo:[
+      ['Nova logo e defesa','A logo antiga usava um símbolo de infinito que não dizia nada sobre a empresa. Partindo dos valores, defini três pilares (direção, confiança e evolução) e desenhei um P com um traço ascendente: o círculo traz solidez e foco, o traço traz crescimento, e a caixa alta passa autoridade. Apresentei a proposta com o antes e depois e testes de cor.',['img/pro_evolucao.webp','img/pro_porque.webp','img/pro_significado.webp']],
+      ['Símbolo e versões','O P virou o elemento síntese da marca, usado sozinho em avatar, favicon, marca d\'água e brindes, com versões horizontal, compacta, vertical e só o nome.',['img/pro_versoes.webp','img/pro_simbolo.webp']],
+      ['Cor e formas de apoio','Azul-marinho, cinza azulado e dourado, com o símbolo, linhas estruturais e formas geométricas simples para organizar capas, apresentações e posts.',['img/pro_paleta.webp','img/pro_formas.webp']],
+      ['Tom de voz','Arquétipos Sábio e Cuidador, com o que escrever e o que evitar, vocabulário da marca, blacklist, tradutor de frases, adaptação por canal e regras de UX writing.',['img/pro_arquetipos.webp','img/pro_tradutor.webp']],
+      ['Marca pessoal do fundador','Media kit do CEO, Natalino Simeão, com biografia, o ecossistema das 4 empresas e os números de alcance do perfil, para parcerias e palestras.',['img/nat_capa.webp','img/nat_eco.webp']],
+      ['Motion e telas','Animei a entrada da logo nas versões horizontal e vertical e montei os vídeos da tela vertical da recepção, que apresentam o grupo, os valores e cada empresa.'],
+      ['Aplicações','Uniforme, crachá, papelaria, fachada, posts e sinalização.','img/pro_fachada.webp']
+    ],
+    videos:[['vid/proativa_logo.mp4','Animação da nova logo','img/poster_proativa_logo.webp'],['vid/proativa_tela.mp4','Vídeo da tela vertical da recepção','img/poster_proativa_tela.webp',1]],
+    validacao:'As aprovações iam direto para o CEO. Os mesmos valores aparecem nos manuais da Proativa e da GLP Gás, o que mantém o grupo coerente mesmo com marcas diferentes.',
+    metrics:[['35','páginas no manual de marca'],['21','páginas no manual de tom de voz'],['4','empresas no mesmo ecossistema']],
+    resultado:'O grupo ganhou uma marca-mãe clara, com regras de cor, tipografia e escrita que qualquer pessoa da equipe consegue seguir.',
+    gallery:[['img/pro_uniforme.webp','Uniformes'],['img/pro_digital.webp','Telas e posts'],['img/pro_sinal.webp','Sinalização e arquitetura']]
+  },
+  quiz32: {
+    track:'design', title:'Quiz 32 anos', kicker:'Campanha gamificada de endomarketing para o aniversário da GLP Gás', img:'img/coverw_quiz32.webp', thumb:'img/cover_quiz32.webp', alt:'Capa Quiz 32 anos em azul-marinho e verde, com stickers da GLP Gás',
+    ficha:[['Tipo','Endomarketing gamificado, Proativa Capital'],['Minha função','Idealizei a mecânica, o visual, o orçamento e a estratégia de engajamento'],['Empresa','GLP Gás'],['Ano','2026'],['Entregas','Mecânica e pontuação, plano de comunicação, prêmios, apresentação executiva e identidade do evento']],
+    resumo:['Celebrar 32 anos e reforçar segurança e cultura com equipes de turnos diferentes.','Um quiz diário pelo WhatsApp com pontuação, ranking semanal, brindes e eventos de abertura e encerramento.','Projeto muito bem avaliado e elogiado pelos gestores.'],
+    problema:'A GLP Gás ia completar 32 anos e queria comemorar com a equipe toda, inclusive motoristas e ajudantes que passam o dia na rua. Ao mesmo tempo, as normas de segurança e a história da empresa precisavam ser reforçadas sem cara de treinamento.',
+    processo:[
+      ['Pilares','Três pilares guiaram tudo: engajar e divertir, ensinar e reforçar, reconhecer e premiar.','img/quiz_pilares.webp'],
+      ['Mecânica','Uma pergunta por dia no grupo do WhatsApp, com 24 horas para responder, para ninguém perder por causa do turno. 100 pontos por acerto, bônus para os 5 mais rápidos e pontos por criatividade nas respostas abertas.',['img/quiz_dinamica.webp','img/quiz_pontos.webp']],
+      ['Perguntas','Quatro categorias: segurança e conhecimento técnico, a história da empresa desde a primeira Kombi, curiosidades sobre as pessoas e perguntas criativas que viravam depoimentos.','img/quiz_categorias.webp'],
+      ['Jornada e ritmo','Coffee break de abertura com o CEO, ranking semanal com Top 10 e Top 3, destaques da semana (mais rápido, mais criativo, quem mais subiu), brindes e sorteios semanais, até a final com a revelação dos campeões.',['img/quiz_jornada.webp','img/quiz_plano.webp']],
+      ['Prêmios e orçamento','Uma estadia como grande prêmio, brindes semanais e o orçamento completo da campanha, apresentado à diretoria.','img/quiz_premio.webp'],
+      ['Identidade','Selo 32 anos com você, frases sobre a história da empresa e peças para murais, WhatsApp e redes, tudo dentro do sistema da marca GLP Gás.',['img/quiz_selo.webp','img/quiz_frase.webp']]
+    ],
+    validacao:'O ranking semanal era o termômetro da campanha: a cada semana o placar era atualizado, os destaques ganhavam visibilidade e as respostas criativas da equipe viravam conteúdo para as redes.',
+    metrics:[['1','pergunta por dia'],['24h','para responder, em qualquer turno'],['4','categorias de perguntas']],
+    resultado:'A campanha transformou o aniversário num jogo que a empresa inteira podia jogar e foi muito elogiada pelos gestores. É o projeto que melhor junta as minhas três trilhas: marca, experiência e mecânica de jogo.',
+    nota:'Cuidei do visual, do orçamento, de como ia funcionar, da estratégia para manter as pessoas engajadas e da interação com o público.',
+    gallery:[['img/quiz_eventos.webp','Coffee breaks, comunicação multicanal e celebração final'],['img/quiz_fim.webp','Encerramento da apresentação']]
+  },
+  maxgalore: {
+    track:'design', title:'Max Galore', kicker:'Estratégia e design do Instagram de um character artist', img:'img/cover_max.webp', alt:'Perfil @maxgalore_ com 815 seguidores e três posts: arte, carrossel Half Body e retrato',
+    ficha:[['Tipo','Social media'],['Minha função','Estrategista, designer e editor'],['Cliente','Max Galore (Nycson Quintanilha), character artist'],['Período','Desde julho de 2026'],['Ferramentas','Photoshop, Premiere, Canva, Tally']],
+    resumo:['Perfil pequeno, público lá fora e nenhum caminho claro até a encomenda.','Estratégia, linguagem, sistema visual por nível de encomenda e funil no Tally.','+67% de seguidores e 27,7 mil visualizações em 90 dias.'],
+    problema:'Antes da gestão, o perfil tinha 487 seguidores e a bio levava a um linktree genérico. A maior parte do público está fora do Brasil, 38% nos Estados Unidos, então o conteúdo precisava falar inglês e levar direto às encomendas. A parceria começou no meu TCC, o MAR&SEA, em que o Nycson foi o artista.',
+    processo:[
+      ['Pesquisa e linguagem','Pesquisa de público e de perfil, e um manual de linguagem com tom, termos e formatos.'],
+      ['Sistema visual','Molduras com uma cor por nível de encomenda (Card Style, Full Body, Half Body, Campaign Face e Splash Art) e tipografia forte nos carrosséis.'],
+      ['Cadência e funil','3 posts por semana (arte, reels sobre a arte e post com chamada), destaques de Reviews e Style Menu e um formulário de encomendas no Tally, organizado por pacotes.']
+    ],
+    validacao:'Acompanho as métricas num painel próprio. Os reels de transformação, do esboço à arte final, e os de POV de RPG foram os formatos com mais alcance, com até 4,3 mil visualizações.',
+    metrics:[['487 → 815','seguidores (+67%)'],['27,7 mil','visualizações em 90 dias'],['72%','das visualizações de não seguidores']],
+    resultado:'Desde outubro de 2026, também cuido do X e dos YouTube Shorts do artista.',
+    nota:'Montei a estratégia e os posts, a linguagem, a pesquisa e a análise, até a escolha de tipografia e cor.',
+    gallery:[['img/max_hero.webp','Carrosséis que explicam cada nível de encomenda'],['img/max2.webp','Bio com chamada para encomendas e destaques Reviews e Style Menu'],['img/max3.webp','Grade do perfil com artes, reels e carrosséis']],
+    links:[['Ver o perfil no Instagram','https://www.instagram.com/maxgalore_/']]
+  },
+  icones: {
+    track:'design', title:'Ícones para jogo de cartas', kicker:'Freelance de ícones de elementos e símbolos para um jogo de cartas', img:'img/icons_types.webp', thumb:'img/cover_icons.webp', alt:'Oito símbolos em silhueta preta: lança, mamute, insígnia, coroa, escudo com espada, carruagem e dois escudos',
+    ficha:[['Tipo','Freelance, iconografia de jogo'],['Minha função','Designer de ícones'],['Ano','2026'],['Entregas','8 ícones de elemento e 8 símbolos']],
+    resumo:['O jogador precisa reconhecer cada ícone de relance, no tamanho de uma carta.','Dois conjuntos: elementos em medalhões coloridos e símbolos em silhueta.','16 ícones de uma mesma família visual.'],
+    problema:'Um jogo de cartas precisava de ícones que o jogador entendesse de relance, mesmo pequenos, num canto de carta. Eram dois conjuntos: os 8 elementos do jogo e uma família de símbolos.',
+    processo:[
+      ['Elementos','Cada elemento ganhou símbolo e cor próprios num medalhão com reflexo de vidro: olho para Void, espiral para Grace, raio para Influency, chama para Rage, gota para Potency, balança para Order e folhas para Primal, além do Neutral.','img/icons_elements.webp'],
+      ['Símbolos','Silhuetas com cortes angulares e o mesmo peso de traço, para continuarem legíveis bem pequenas: lança, mamute, coroa, escudo com espada, carruagem e uma insígnia de patente.'],
+      ['Família','O mesmo escudo aparece cheio, vazado e combinado com a espada, o que mantém o conjunto coerente.']
+    ]
+  },
+  jacare: {
+    track:'design', title:'Jacaré na Pista', kicker:'Identidade visual de um festival de música', img:'img/coverw_jacare.webp', thumb:'img/cover_jacare.webp', alt:'Logo do Jacaré na Pista em verde sobre roxo',
+    ficha:[['Tipo','Branding de evento (fictício)'],['Minha função','Visual designer: logo, mascotes e desdobramentos'],['Equipe','Hugo Ceni, Maria Fernanda e Yasmin Mansur'],['Ano','2021'],['Ferramentas','Illustrator, Photoshop, Premiere, Miro']],
+    resumo:['Criar a cara de um festival que celebra a volta à vida social.','Logo, mascotes do line-up, cartaz, pulseiras, produtos e feed animado.','Identidade completa, do logo ao merchandising.'],
+    problema:'Criar a identidade de um festival que celebra a volta à vida social depois da vacinação. O conceito junta duas coisas que marcaram a pandemia no Brasil: o jacaré que passeou por uma avenida do Rio e a piada de que a vacina transformaria as pessoas em jacarés. Abraçamos isso com humor: um festival em que público e artistas, enfim vacinados (e transformados), tomam as ruas. O jacaré deixa de ser medo e vira símbolo da imunização.',
+    processo:[
+      ['Logo e mascotes','Desenvolvi o logotipo e vetorizei os mascotes. Em vez de personagens genéricos, os próprios artistas do line-up viraram jacarés, com figurino e personalidade de palco mantidos, para o público se divertir reconhecendo seus ídolos.'],
+      ['Cor e tipografia','Paleta ácida (verde neon, roxo e rosa) e tipografia pesada, para funcionar tanto em anúncio no celular quanto na sinalização urbana à noite.'],
+      ['Aplicações','Cartaz em formato de ponto de ônibus (1,20 x 1,80 m), pulseiras-ingresso e padronagens.'],
+      ['Redes e produtos','Ilustrações e animações do feed no Photoshop e no Premiere, além de camisetas, copos, bonés e adesivos.']
+    ],
+    resultado:'Identidade completa, do logo ao merchandising, com feed animado no Instagram.',
+    gallery:[['img/jac_lineup.webp','O line-up transformado em jacarés'],['img/jac_mock.webp','Cartaz aplicado no ponto de ônibus e no totem'],['img/jac_sketch.webp','Rascunhos dos mascotes'],['img/jac_testes.webp','Testes de cartaz'],['img/jac_pattern.webp','Padronagens'],['img/jacare3.webp','Produtos da loja do festival']],
+    links:[['Página antiga no Adobe Portfolio',P+'jacare-na-pista']]
+  },
+  ticrj: {
+    track:'design', title:'1ª Conferência TIC-RJ', kicker:'Identidade da primeira conferência de TIC do Rio de Janeiro', img:'img/ticrj.webp', alt:'Painel com a marca da 1ª Conferência TIC-RJ numa parede, com uma pessoa passando',
+    ficha:[['Tipo','Identidade visual de evento'],['Minha função','Designer, em colaboração com o supervisor'],['Contexto','Estágio no PRODERJ'],['Período','2022 a 2024']],
+    resumo:['Uma conferência estadual nova precisava de identidade própria.','Três alternativas de logo, sistema de cores e tipografia e as aplicações.','Marca aplicada em painéis, crachás, garrafas e divulgação.'],
+    problema:'Criar uma identidade nova para a primeira conferência de Tecnologia da Informação e Comunicação do estado do Rio de Janeiro.',
+    processo:[
+      ['Alternativas','Três opções de logo, cada uma com paleta própria, apresentadas para escolha.'],
+      ['Sistema','Tipografia Nexa Light e Nexa Bold, versões vertical e horizontal e aplicação em fundos claros e escuros.'],
+      ['Aplicações','Painéis, crachás, garrafas e peças de divulgação.']
+    ],
+    gallery:[['img/ticrj2.webp','Garrafas da conferência'],['img/ticrj3.webp','A marca aplicada nas cores da paleta']],
+    links:[['Página antiga no Adobe Portfolio',P+'1-conferencia-de-tic']]
+  },
+  proderj: {
+    track:'design', title:'PRODERJ', kicker:'Comunicação de uma empresa de tecnologia do Governo do RJ', img:'img/proderj55.webp', pos:'50% 0%', alt:'Identidade dos 55 anos do PRODERJ com circuitos e o selo de Transformação Digital',
+    ficha:[['Tipo','Estágio em design'],['Minha função','Designer; identidades de evento com o supervisor'],['Período','2022 a 2024'],['Ferramentas','Figma, Illustrator, Photoshop, Premiere, After Effects']],
+    resumo:['Comunicação interna e externa de uma empresa pública de tecnologia.','Posts de campanha, a identidade dos 55 anos, medalhas e motion.','Peças usadas num evento com a presença do governador.'],
+    problema:'Produzir a comunicação interna e externa do PRODERJ, de posts de datas comemorativas a eventos com a presença do governador.',
+    processo:[
+      ['Redes','Posts de campanhas como Outubro Rosa e Setembro Amarelo, datas comemorativas e a série Minuto Digital.'],
+      ['55 anos','Identidade do evento de 55 anos do PRODERJ, com a Medalha de Mérito Tecnológico.'],
+      ['Motion','Vídeos e motion graphics para as redes, com personagens em pixel art.']
+    ],
+    resultado:'Peças publicadas nas redes oficiais e usadas num evento com a presença do governador do Rio de Janeiro.',
+    gallery:[['img/proderj_medal.webp','Medalha de Mérito Tecnológico e o evento de 55 anos'],['img/proderj.webp','Posts de campanhas e datas comemorativas'],['img/proderj_robots.webp','Personagens em pixel art para os vídeos']],
+    links:[['Página antiga no Adobe Portfolio',P+'proderj']]
+  },
+  toca: {
+    track:'design', title:'Toca na Patinha', kicker:'Campanha para os gatos do campus da PUC-Rio', img:'img/toca.webp', alt:'Pata de gato ilustrada sob o título Toca na Patinha',
+    ficha:[['Tipo','Campanha e sistema de comunicação'],['Equipe','Projeto em dupla'],['Ano','2022'],['Para quem','FUM, Felinos Universitários do Marquês']],
+    resumo:['Três voluntárias cuidando sozinhas de todos os gatos do campus.','Identidade, placas com NFC, feed novo e financiamento coletivo.','Um sistema que o FUM consegue manter sem ajuda.'],
+    problema:'O FUM cuida dos gatos do campus com só três pessoas fazendo tudo: redes, bazar, resgates e alimentação. A universidade apoia a castração, mas não financia o resto.',
+    processo:[
+      ['Pesquisa','Visita guiada pelo campus com um professor e entrevista com a responsável pelo FUM.'],
+      ['Identidade','Mini manual com logo, versões alternativas, paleta e tipografia.'],
+      ['Sistema','Placas com NFC que levam a posts do Instagram, redesenho do feed e uma página de financiamento coletivo com metas de R$ 700 a R$ 4.000 por mês.']
+    ],
+    resultado:'Um sistema que liga placas, Instagram, bazar e financiamento coletivo, pensado para o FUM conseguir manter sozinho.',
+    video:['vid/toca.mp4','Vídeo de apresentação da campanha'],
+    gallery:[['img/toca2.webp','Placas com NFC espalhadas pelo campus'],['img/toca3.webp','Mini manual com o logo do FUM e versões alternativas']],
+    links:[['Página antiga no Adobe Portfolio',P+'toca-na-patinha']]
+  },
+  jester: {
+    track:'design', extra:true, title:'A Jester Deal', kicker:'Animação 2D sobre o ciclo de ódio gerado pela vingança', img:'img/jester_concept.webp', alt:'Concept art do bobo da corte James Hawk, do esboço à versão colorida',
+    ficha:[['Tipo','Animação 2D curta'],['Minha função','Direção, roteiro e animação'],['Contexto','Disciplina de Princípios da Animação, PUC-Rio'],['Duração','1 minuto']],
+    resumo:['Contar uma história de vingança em um minuto, sem diálogo.','Personagens, storyboard e animação, tudo feito por mim.','Curta finalizado, com os princípios clássicos da animação aplicados.'],
+    problema:'Contar, em um minuto e sem diálogo, uma história sobre o ciclo de ódio gerado pela vingança, aplicando os princípios clássicos da animação.',
+    processo:[
+      ['Concept art','Desenvolvi o bobo da corte James Hawk do esboço à versão final colorida.'],
+      ['Storyboard','Planejei os cortes, enquadramentos e o ritmo da história quadro a quadro.'],
+      ['Animação','Animei a curta aplicando timing, antecipação e exagero.']
+    ],
+    video:['vid/jester.mp4','A Jester Deal, 1 minuto'],
+    gallery:[['img/jester_board.webp','Storyboard completo']],
+    links:[['Página antiga no Adobe Portfolio',P+'animacao']]
+  },
+  semcomb: {
+    track:'design', extra:true, title:'Sem Combustível', kicker:'Storyboard e animatic de uma comédia sci-fi', img:'img/coverw_semcomb.webp', thumb:'img/cover_semcomb.webp', alt:'Título Sem Combustível escrito à mão, com o subtítulo Storyboard e Animatic',
+    ficha:[['Tipo','Pré-produção de curta-metragem'],['Minha função','Direção, roteiro e storyboard (solo)'],['Ferramenta','Clip Studio Paint'],['Duração do animatic','3min30']],
+    resumo:['Um astronauta azarado fica preso no espaço sem combustível.','Roteiro, storyboard completo e animatic com o tempo das cenas.','Pré-produção concluída, com ritmo da comédia validado.'],
+    problema:'Uma curta de comédia sci-fi que acompanha um astronauta azarado, preso no espaço depois de ficar sem combustível. O projeto foi um estudo de narrativa visual e timing.',
+    processo:[
+      ['Roteiro','Escrevi a história e as piadas pensando em ação visual, quase sem diálogo.'],
+      ['Storyboard','Planejei enquadramentos e continuidade de ação em todos os quadros.'],
+      ['Animatic','Transformei os desenhos em um vídeo rascunho sincronizado, para validar o ritmo da comédia e a clareza da história antes da animação final.']
+    ],
+    resultado:'Pré-produção concluída: roteiro e timing finalizados.',
+    video:['vid/semcomb.mp4','Animatic completo, 3min30'],
+    gallery:[['img/semcomb.webp','O astronauta na nave'],['img/semcomb_board.webp','Storyboard'],['img/semcomb_ship.webp','Quadro de cor da nave']],
+    links:[['Página antiga no Adobe Portfolio',P+'sem-combustivel-no-fuel']]
+  },
+  maresea: {
+    track:'games', title:'MAR&SEA', kicker:'Jogo 2D de simulação e exploração marítima', img:'img/coverw_maresea.webp', thumb:'img/cover_maresea.webp', alt:'Logo do MAR&SEA com âncora entre as palavras e as ferramentas usadas',
+    ficha:[['Tipo','Jogo digital, TCC'],['Minha função','Game designer, programador, artista e animador'],['Equipe','Com Nycson Quintanilha (arte) e Hannah Ruth (animação)'],['Engine','Unity e C#'],['Ano','2024']],
+    resumo:['Um jogo para aliviar o estresse, e não para causar mais.','GDD, programação em Unity, UI e animação, com pesquisa guiando cada decisão.','Tutorial jogável apresentado e testado no Demo Day da PUC-Rio.'],
+    problema:'Como fazer um jogo que ajude a aliviar o estresse do dia a dia? No MAR&SEA, Drake Escama-Vermelha, um dragão sem asas, ganha um navio numa aposta e precisa repará-lo depois de uma tempestade.',
+    processo:[
+      ['Pesquisa','Questionário com 66 respostas, análise de 13 jogos, grupo focal com 6 jogadores e entrevista com uma psicóloga sobre o que torna um jogo relaxante ou estressante. O questionário mostrou que cada vez mais gente joga para desestressar, e os jogos relaxantes mais citados foram Stardew Valley, Minecraft e The Sims.'],
+      ['Decisões de design','Sem punição por sorte, ritmo calmo, paleta suave e progressão gradual, guiados pelo que a pesquisa apontou e organizados num Game Design Canvas e num one-page design document.','img/mar_canvas.webp'],
+      ['Escopo e produção','Escopo fechado num tutorial jogável de um semestre: coleta de recursos, construção de itens, minigame de timing e reparo do navio. Organizei tudo num Gantt por cor (programação, arte, HUD, relatório e playtests), ligado ao GDD, e usei MoSCoW para decidir o que entrava no tutorial.','img/mar_gantt.webp'],
+      ['Direção de arte','Moodboard de mar e ilhas, paleta em azul-marinho, azul, laranja e verde-água e estilo cartunesco. Os personagens saíram de rascunhos à mão para a arte final, em parceria com o Nycson.',['img/mar_moodboard.webp','img/mar_sketch_chars.webp']],
+      ['HUD','Barra de interação, slots de itens, menu de construção, caixas de diálogo e mapa, rascunhados antes de ir para a produção.',['img/mar_hud_sketch.webp','img/mar_hud_build.webp']],
+      ['Animação','Ciclos do Drake e feedbacks visuais de ação, feitos junto com a Hannah, para o jogo responder a cada clique.','img/mar_anim.webp']
+    ],
+    validacao:'Fiz playtests focados em partes do jogo ao longo do desenvolvimento. O mais completo foi no Demo Day da PUC-Rio, com a mesa tematizada, cartaz, adesivos de brinde e placas com QR code da equipe. Os jogadores pediram ajustes em algumas mecânicas, explicações mais claras de certos sistemas, textos maiores destacando as teclas e um tutorial com menos comandos. Tudo foi registrado e aplicado ao jogo.',
+    metrics:[['66','respostas no questionário'],['13','jogos analisados'],['6','jogadores no grupo focal']],
+    resultado:'Tutorial jogável apresentado no Demo Day. Os próximos passos já estão no GDD, como um sistema de perícias que evolui com as ações do jogador, e a ideia é buscar financiamento coletivo depois do tutorial.',
+    nota:'Foi desafiador lidar com tantas funções no desenvolvimento de um jogo, mas isso me deu um entendimento muito mais profundo de cada etapa.',
+    video:['vid/maresea.mp4','Gameplay e processo do MAR&SEA'],
+    gallery:[['img/mar_marca.webp','Ícone do app e logo do MAR&SEA'],['img/mar_kraken.webp','Ilustração de abertura: o navio atacado na tempestade'],['img/mar_title.webp','Tela inicial do jogo'],['img/maresea_hero.webp','Drake Escama-Vermelha, o personagem principal'],['img/mar_abyssal.webp','Almirante Abyssal, o antagonista'],['img/maresea.webp','Construção de itens'],['img/maresea3.webp','Reparo do navio'],['img/maresea_play.webp','Playtest no Demo Day da PUC-Rio'],['img/maresea_demoday.webp','Mesa tematizada do Demo Day'],['img/maresea_poster.webp','Cartaz de apresentação do projeto'],['img/maresea_brindes.webp','Adesivos de brinde e placas da equipe com QR code'],['img/maresea2.webp','Coleta de recursos com o minigame de timing']],
+    links:[['Página antiga no Adobe Portfolio',P+'marsea']]
+  },
+  colmeia: {
+    track:'games', title:'Protocolo Colmeia', kicker:'RPG de mesa sci-fi para 16 jogadores', img:'img/colmeia_hero.webp', alt:'Cartas de personagem do Protocolo Colmeia com atributos e vida em corações',
+    ficha:[['Tipo','Jogo de mesa, sessão única'],['Minha função','Game designer, mestre e diretor de arte'],['Ano','2026'],['Ferramentas','Canva, Midjourney']],
+    resumo:['Uma mesa de RPG para 16 pessoas, muitas jogando pela primeira vez.','Sistema D20 simplificado, 8 salas de level design e todo o material da mesa.','Sessão bem recebida e uma lista clara do que simplificar.'],
+    problema:'Montar em um mês uma sessão de RPG para 16 pessoas no meu aniversário, com muita gente que nunca tinha jogado.',
+    processo:[
+      ['Sistema','D20 simplificado, vida em corações e turno com movimento, ação principal e ação bônus.'],
+      ['Conteúdo','Classes e plataformas mecânicas, inimigos, chefe em fases, itens lendários, sequelas e um relógio de sobrecarga que aumenta a tensão a cada turno.'],
+      ['Level design','8 salas da nave GH061 em tabuleiro modular, com cobertura, terreno difícil e pontos de hack e cura.'],
+      ['Direção de arte','Cartas, tokens, mapas e convites com IA generativa a partir de uma fórmula de prompt padronizada.'],
+      ['Convite e kit','O convite foi uma contagem regressiva no visual de terminal da nave. Cada jogador recebeu um saquinho com a arte do 26, a sua carta de personagem e um kit de dados temático.',['img/colmeia_convite.webp','img/colmeia_kit.webp','img/colmeia_zane.webp']],
+      ['Mesa','Ficha de jogador com referência de turno, baralhos de equipamento e classes, mapa modular, torre de dados e o escudo do mestre.',['img/colmeia_ficha.webp','img/colmeia_cartas.webp','img/colmeia_mesa.webp']]
+    ],
+    validacao:'A sessão foi bem recebida e mostrou o que simplificar: o sistema ficou mais complexo do que um grupo de 16 iniciantes pedia.',
+    metrics:[['16','jogadores na mesa'],['8','salas de level design'],['1','mês do zero à sessão']],
+    nota:'Produzi esse jogo para o meu aniversário. A ideia era montar uma mesa de RPG para 16 jogadores e eu mestrar.',
+    gallery:[['img/colmeia_mestre.webp','Eu mestrando a sessão'],['img/colmeia_jogo.webp','Jogadores montando os personagens no mapa modular'],['img/colmeia_grupo.webp','A mesa completa no dia do aniversário'],['img/colmeia.webp','Folha completa de personagens'],['img/colmeia2.webp','Cartas de equipamento e classes']]
+  },
+  mestre: {
+    track:'games', title:'Mestre de Bolso', kicker:'Baralho para criar histórias de RPG', img:'img/coverw_mestre.webp', thumb:'img/cover_mestre.webp', alt:'Capa do Mestre de Bolso em pergaminho, ferramenta de RPG',
+    ficha:[['Tipo','Jogo de cartas e ferramenta de RPG, protótipo físico testado'],['Minha função','Lead game designer e roteirista'],['Equipe','Hugo Ceni, Thiago Weber, Anne Blumer e Eduardo Guzman'],['Ano','2025'],['Ferramentas','Canva, Illustrator']],
+    resumo:['Mestres de RPG travam na hora de improvisar.','Um baralho-oráculo com cartas que se combinam em sementes de história.','Jogadores montaram tramas em menos de 2 minutos.'],
+    problema:'Mestres de RPG travam na hora de improvisar. O Mestre de Bolso funciona como um oráculo narrativo: cartas que, combinadas, geram a semente de uma história para qualquer sistema.',
+    processo:[
+      ['Categorias','Ganchos de trama, arquétipos, cenários e reviravoltas que, combinados, geram sementes de história para qualquer sistema, de D&D a Cthulhu.'],
+      ['Lógica de combinação e GDD','Criei toda a lógica de combinação e escrevi o GDD. O desafio foi escrever descrições genéricas o bastante para qualquer gênero e específicas o bastante para inspirar.'],
+      ['Protótipo rápido','Assets prontos na arte das cartas para focar na função e na legibilidade.']
+    ],
+    validacao:'Imprimimos o baralho e testamos com grupos de estudantes. Os jogadores montaram tramas em menos de 2 minutos.',
+    metrics:[['< 2 min','para montar uma trama'],['4','categorias de cartas']],
+    gallery:[['img/mestre.webp','Cartas de Passado, Presente, Futuro e sistemas de RPG'],['img/mestre2.webp','Testes de ícones das cartas']],
+    links:[['Página antiga no Adobe Portfolio',P+'mestre-de-bolso']]
+  },
+  clicker: {
+    track:'games', title:'Clicker Culinário', kicker:'Jogo incremental sobre culinária brasileira', img:'img/clicker.webp', alt:'Interface do Clicker Culinário com barracas, feirinha e food trucks',
+    ficha:[['Tipo','Jogo de navegador'],['Minha função','Game design, UI e front-end'],['Ano','2025'],['Ferramentas','Illustrator, HTML, CSS, JavaScript, Gemini']],
+    resumo:['Unir design de interface e programação num jogo de navegador.','Economia incremental, UI vetorial e front-end, com IA acelerando a lógica.','Jogo com barracas, fazendas e food trucks desbloqueáveis.'],
+    problema:'Explorar o encontro entre design de interface e programação de jogos num incremental sobre ingredientes brasileiros, da mandioca ao açaí.',
+    processo:[
+      ['Esboço','Rascunhos à mão para definir a hierarquia da tela e a progressão econômica.'],
+      ['Interface antes do código','Assets no Illustrator e grid responsivo em CSS antes da lógica.'],
+      ['Lógica com IA','Prompts detalhados no Gemini para a base, com revisão, depuração e integração feitas por mim.']
+    ],
+    resultado:'Economia com barracas, fazendas que multiplicam a renda e food trucks desbloqueáveis, com custos que sobem a cada compra.',
+    gallery:[['img/clicker_sketch.webp','Rascunho da tela principal']],
+    links:[['Código no GitHub','https://github.com/hugo-ceni/clicker-culinario'],['Página antiga no Adobe Portfolio',P+'clicker-culinario']]
+  },
+  steamvapor: {
+    track:'games', title:'Steam Vapor', kicker:'Roguelike top-down em Unity', img:'img/coverw_steam.webp', thumb:'img/cover_steam.webp', alt:'Título Steam Vapor, projeto de estudo técnico em Unity',
+    ficha:[['Tipo','Protótipo, estudo técnico'],['Minha função','Desenvolvimento solo: programação, game design e pixel art'],['Engine','Unity e C#'],['Ano','2024']],
+    resumo:['Entender como arte e código conversam dentro da Unity.','Ondas de inimigos, combate, game loop, HUD e toda a pixel art.','O laboratório técnico que preparou o TCC.'],
+    problema:'Antes do TCC, eu queria entender como arte e código conversam dentro da Unity, assumindo o pipeline inteiro.',
+    processo:[
+      ['Sistemas','Ondas de inimigos com dificuldade crescente, tiro com cooldown e sistema de vida.'],
+      ['Game loop','Estados de vitória e derrota e HUD de pontuação.'],
+      ['Arte','Personagens, inimigos e cenário em pixel art.']
+    ],
+    nota:'O Steam Vapor foi o meu grande laboratório de desenvolvimento.',
+    gallery:[['img/steam_sprites.webp','Sprites em pixel art: navios, inimigos e efeitos'],['img/steam_barco_anim.webp','Animação do navio sobre a água'],['img/steam.webp','Arena do jogo na Unity']],
+    links:[['Página antiga no Adobe Portfolio',P+'steam-vapor']]
+  },
+  gastro: {
+    track:'games', extra:true, title:'Gastromania', kicker:'Jogo mobile de culinária brasileira para dois jogadores', img:'img/coverw_gastro.webp', thumb:'img/cover_gastro.webp', alt:'Logo do Gastromania com chapéu de chef sobre xadrez amarelo',
+    ficha:[['Tipo','Projeto de jogo mobile, pré-produção'],['Equipe','Breno Dutra, Felipe Gomes, Hugo Ceni, Norton Serrano e Pedro Henrique de Sá'],['Contexto','Projetar para Concretizar, PUC-Rio'],['Ano','2023']],
+    resumo:['Quase nenhum jogo no mercado mostra o Brasil e a nossa cultura.','Pesquisa, conceito, gameplay, identidade visual, monetização e orçamento.','Um jogo casual e gratuito, pensado para qualquer celular.'],
+    problema:'Muitos brasileiros jogam, mas quase nenhum jogo mostra o Brasil. O grupo partiu do objetivo de valorizar a cultura brasileira através de jogos digitais. A primeira pesquisa olhou para o folclore e mostrou que o tema exigia muito cuidado, porque muitas figuras vêm de povos indígenas e foram distorcidas. Então mudamos para a culinária: um jogo em que você cozinha mais pratos brasileiros que o seu oponente, numa cozinha frenética.',
+    processo:[
+      ['Pesquisa','Jogos com temas históricos e mitológicos, dados de acesso a celular e games no Brasil e uma análise crítica do conceito de folclore.'],
+      ['Parâmetros','Gratuito e disponível em qualquer celular, gênero casual de partidas curtas e mecânicas simples, para todos os públicos.'],
+      ['Gameplay','Três princípios: mover-se arrastando o dedo, interagir de um jeito diferente em cada estação (cortar, aquecer, misturar) e entregar o prato, avaliado pelo cliente.'],
+      ['Identidade','Três conceitos guiaram tudo: exploração, frenético e apetitoso. Deles vieram o nome, que junta gastronomia e mania, e o amarelo mostarda da marca.'],
+      ['Negócio','Monetização com skins e cartas em duas moedas e orçamento para 6 meses de produção, montado com orientação do professor Guilherme Xavier.']
+    ],
+    gallery:[['img/gastro_screens.webp','Protótipo 3D da cozinha e das estações de preparo'],['img/gastro_roteiro.webp','Roteiro da apresentação, com as cartas colecionáveis']]
+  },
+  shooter: {
+    track:'games', extra:true, title:'Shooter', kicker:'Jogo de navegador com visualização de dados das partidas', img:'img/shooter_final.webp', thumb:'img/cover_shooter.webp', alt:'Tela do Shooter com a área de jogo, instruções e gráficos do histórico de partidas',
+    ficha:[['Tipo','Jogo de navegador'],['Minha função','Desenvolvimento solo'],['Contexto','Disciplina de Visualização de Dados, PUC-Rio'],['Ferramentas','Unity, HTML, CSS, JavaScript, Chart.js, Gemini']],
+    resumo:['Fazer um jogo que mostra ao jogador a evolução dele em dados.','Comecei um runner na Unity e migrei para um shooter em JavaScript.','Gráficos de inimigos, tiros e tempo por partida.'],
+    problema:'A disciplina pedia um jogo focado em visualização de dados. Comecei com o Squarush, um runner 2D na Unity em que um quadrado corre sozinho, pula obstáculos e, no fim, vê as estatísticas da corrida em gráficos.',
+    processo:[
+      ['Squarush na Unity','Implementei a lógica base do runner, mas montar os gráficos de dados na Unity se mostrou complexo e demorado demais para o prazo.'],
+      ['Mudança de rota','Reavaliei o escopo e migrei para um shooter lateral em HTML, CSS e JavaScript, onde eu tinha mais controle sobre o visual.'],
+      ['Jogo e dados','Nave, inimigos e disparos em JavaScript, com o Gemini ajudando a corrigir a lógica. Os gráficos em Chart.js mostram inimigos destruídos, tiros e tempo de cada partida.']
+    ],
+    resultado:'Um jogo minimalista em que o jogador acompanha a própria evolução partida a partida.',
+    nota:'O maior aprendizado foi definir o escopo: entender os limites de execução e priorizar o essencial foi o que fez o projeto andar.',
+    gallery:[['img/shooter_unity.webp','Primeira versão, o Squarush, na Unity']]
+  },
+  pixelart: {
+    track:'games', extra:true, title:'Pixel art', kicker:'Sprites para jogos e uma pintura que brilha na luz negra', img:'img/px_fisica_digital.webp', thumb:'img/cover_pixel.webp', alt:'Polvo em pixel art rosa, amarelo e verde sobre fundo preto',
+    ficha:[['Tipo','Pixel art para jogos e arte física'],['Minha função','Artista de pixel art'],['Projetos','McFly Pro Skater, trabalho de Física, Steam Vapor, Slime Destruct, Khoros e estudos'],['Período','2020 a 2026']],
+    resumo:['Comunicar personagem e função com poucos pixels e poucas cores.','Personagens, animações, objetos, cenários e uma pixel art pintada à mão.','Uma linguagem visual que aparece em boa parte dos meus jogos.'],
+    problema:'A pixel art está em boa parte dos meus jogos, do Khoros ao Steam Vapor. Aqui junto os trabalhos em que ela foi o foco, incluindo um em que a levei do digital para o papel.',
+    processo:[
+      ['McFly Pro Skater','Projeto em grupo da disciplina de Fundamentos da Mídia Digital, em 2020: um runner em que o personagem foge se segurando nos veículos. Fiz as pixel arts do personagem, dos veículos, das máquinas, dos itens e das skins de skate.','img/px_mcfly.webp'],
+      ['Pixel art que brilha','No trabalho de Física, levei a pixel art digital para uma pintura com tinta fluorescente, que acende sob luz negra. O desenho foi planejado no computador e pintado à mão, quadrado por quadrado.',['img/px_fisica_digital.webp','img/px_fisica_proc.webp']],
+      ['Personagens','Personagens com leitura clara em poucos pixels, de um mago com chapéu em chamas a um chef, uma banana e um boi-bumbá.','img/px_personagens.webp'],
+      ['Animação','Ciclos de caminhada de frente e de lado, com variação de pose a cada quadro.',['img/px_animacao.webp','img/px_jester_anim.webp']],
+      ['Objetos e cenários','Food truck, móveis vistos de cima, ícones e objetos espaciais, cada um com sombra e brilho próprios.','img/px_objetos.webp'],
+      ['Nos meus jogos','Navios, inimigos e efeitos do Steam Vapor, o slime e o laboratório do Slime Destruct e as salas de 8x8 pixels e 3 cores do Khoros.',['img/steam_sprites.webp','img/slime.webp']]
+    ],
+    gallery:[['img/px_fisica_luz.webp','A pintura final sob luz negra']]
+  },
+  lonestar: {
+    track:'games', extra:true, title:'Lone Star', kicker:'Conceito de runner espacial para celular', img:'img/lone_cover.webp', thumb:'img/cover_lone.webp', alt:'Capa do conceito Lone Star em fundo espacial roxo',
+    ficha:[['Tipo','Conceito de jogo e GDD'],['Minha função','Game designer, projeto solo'],['Contexto','Pitch para o grupo de jogos da PUC-Rio'],['Plataforma','Mobile']],
+    resumo:['Um astronauta esquecido em hibernação procura um novo lar no espaço.','História, mecânica principal, progressão, obstáculos e árvore de upgrades.','Um GDD em que cada upgrade muda o jeito de se mover.'],
+    problema:'No ano de 3045, um astronauta acorda de uma cápsula de hibernação e descobre que a Terra foi abandonada depois de uma epidemia. Sozinho, com um traje e um propulsor, ele atravessa os destroços espaciais em busca de um novo lar.',
+    processo:[
+      ['Mecânica principal','Tocar no lado da tela aciona um jato que empurra o astronauta para o lado oposto. As órbitas dos planetas servem de estilingue, mas é preciso cuidado para não ficar preso nelas.','img/lone_mech.webp'],
+      ['Progressão','O jogo avança por distância. Estações e naves abandonadas funcionam como checkpoints, onde o lixo espacial coletado vira melhoria do traje.'],
+      ['Obstáculos e espaço','Planetas com órbita, asteroides que giram e lançam o jogador em arco, destroços em alta velocidade e lixo espacial coletável, cada um com frequência e função próprias.','img/lone_elements.webp'],
+      ['Upgrades','Mais impulsos, coletor de lixo, resistência do traje, um gancho que prende em objetos para pegar impulso e um lançador de mísseis que também empurra o jogador. Ser atingido pode quebrar partes do traje e desligar melhorias por um tempo.']
+    ],
+    resultado:'O conceito não seguiu adiante, mas o GDD registra como eu penso em sistemas: a maior parte dos upgrades muda o jeito de se mover, e não só um número.'
+  },
+  solar: {
+    track:'games', extra:true, title:'Sistema Solar', kicker:'Experiência imersiva em VR no Spatial', img:'img/coverw_solar.webp', thumb:'img/cover_solar.webp', alt:'Título Sistema Solar com Spatial, Unity e Blender',
+    ficha:[['Tipo','Experiência educacional em VR'],['Minha função','3D artist e level designer'],['Plataforma','Spatial.io, navegador e óculos de VR'],['Ferramentas','Blender, Unity, Photoshop, Spatial SDK']],
+    resumo:['Explorar o Sistema Solar caminhando entre os planetas.','Modelagem, texturas, iluminação e level design para web e VR.','Experiência leve o bastante para rodar no celular e no Quest 2.'],
+    problema:'Criar uma experiência imersiva e educacional em que as pessoas caminham entre os planetas, veem texturas detalhadas e sentem a escala do Sistema Solar. Precisava ser bonita e, ao mesmo tempo, leve para rodar no navegador e em óculos de VR.',
+    processo:[
+      ['Modelagem e texturas','Planetas e Lua no Blender, com mapeamento UV, diffuse e normal maps e contagem de polígonos otimizada.'],
+      ['Implementação e luz','Materiais compatíveis com o Spatial na Unity, skybox de nebulosas, luz direcional simulando o Sol e baking de luz, além de colisões, spawn e teleporte com o Spatial SDK.'],
+      ['Escala','Na escala real, os planetas ficariam pequenos demais perto do Sol. Fiz o planeta crescer quando o jogador se aproxima e o Sol diminuir, para o foco ficar no planeta sem perder a sensação de vastidão.'],
+      ['Leitura','Os textos só aparecem quando o jogador chega perto de um planeta, divididos em dois painéis: dados técnicos à esquerda e curiosidades à direita. A linha de órbita some nesse momento para não atrapalhar a leitura.'],
+      ['Órbitas e polimento','Linhas de órbita como guia visual do trajeto de cada planeta e animações suavizadas a partir do feedback.']
+    ],
+    validacao:'O desenvolvimento foi iterativo: testes contínuos e feedback apontaram o que ajustar em cada etapa, da escala à legibilidade dos textos e às animações.',
+    resultado:'Draw calls baixos para a experiência funcionar no celular e em óculos como o Quest 2.',
+    nota:'Com este projeto, pude desenvolver bastante a experiência do usuário em ambientes 3D na Unity e entender melhor como funcionam os óculos de VR.',
+    gallery:[['img/solar.webp','Avatar caminhando ao lado do Sol'],['img/solar_unity.webp','Montagem da cena na Unity'],['img/solar_info.webp','Painel de curiosidades de Mercúrio'],['img/solar_sun.webp','O Sol em escala']],
+    links:[['Visitar o espaço no Spatial','https://www.spatial.io/s/SISTEMA-SOLAR-685d2ecff734432bbfb0b183?share=1468005979070290150'],['Página antiga no Adobe Portfolio',P+'sistema-solar-spatial']]
+  },
+  slime: {
+    track:'games', extra:true, title:'Slime Destruct', kicker:'Plataforma 2D de ação em Construct 3', img:'img/coverw_slime.webp', thumb:'img/cover_slime.webp', alt:'Slime verde em pixel art sobre o título Slime Destruct',
+    ficha:[['Tipo','Plataforma 2D e tiro'],['Minha função','Desenvolvimento solo: game design, programação visual e arte'],['Engine','Construct 3'],['Status','Disponível no itch.io']],
+    resumo:['Um experimento biológico tenta fugir de uma base militar secreta.','Fases, inimigos com IA, vida e condições de vitória e derrota.','Meu primeiro jogo com lógica de programação de verdade.'],
+    problema:'O jogador controla um Slime, um experimento biológico, tentando escapar de uma base militar secreta. A narrativa guia a jogabilidade: quanto mais ele avança, mais perigosos ficam os obstáculos, refletindo a segurança reforçada da base.',
+    processo:[
+      ['Progressão','Dificuldade amarrada à história, com a segurança da base apertando a cada fase.'],
+      ['Sistemas','IA de inimigos, variáveis de vida e condições de vitória e derrota nas Event Sheets do Construct.'],
+      ['Arte','Personagens, cenários e interface em pixel art.']
+    ],
+    nota:'Foi aqui que deixei de apenas montar telas para desenvolver sistemas.',
+    gallery:[['img/slime.webp','Slime no laboratório, com a dica de controles'],['img/slime_level.webp','Fase externa com inimigo'],['img/slime_editor.webp','Fase montada no editor do Construct']],
+    links:[['Jogar no itch.io','https://dk-happy.itch.io/slime-destruct'],['Página antiga no Adobe Portfolio',P+'slime-destruct']]
+  },
+  khoros: {
+    track:'games', extra:true, title:'Khoros', kicker:'Meu primeiro jogo, feito no Bitsy', img:'img/coverw_khoros.webp', thumb:'img/cover_khoros.webp', alt:'Título χώρος (Khoros), meu primeiro jogo',
+    ficha:[['Tipo','Jogo narrativo de exploração'],['Minha função','Desenvolvimento solo'],['Ferramenta','Bitsy']],
+    resumo:['Criar mistério e solidão com 3 cores por sala e sprites de 8x8.','História, salas, itens e diálogos em pixel art.','Aprendi a narrar pelo ambiente, sem cutscenes.'],
+    problema:'Ao manusear sua tecnologia, o renomado astronauta e cientista Luiz comete um erro e vai parar num lugar desconhecido. O desafio era criar uma atmosfera de mistério e solidão espacial com recursos bem limitados: só 3 cores por sala e sprites de 8x8 pixels.',
+    processo:[
+      ['Narrativa','História curta contada por diálogos ao longo da exploração.'],
+      ['Exploração','Quatro planetas (D\'água, Pixelado, Chifre e Avelã), cada um com sua paleta de 3 cores, ligados por salas, cavernas e itens como chaves.'],
+      ['Arte','Personagens e cenário em pixel art no próprio editor do Bitsy.']
+    ],
+    resultado:'Aprendi a contar uma história sem cutscenes, só pela interação do jogador com objetos e cenário, e que limitações técnicas podem puxar soluções visuais e de texto mais criativas.',
+    gallery:[['img/khoros.webp','Abertura e uma das salas'],['img/khoros2.webp','Sala com chave e saídas']],
+    play:'jogos/khoros.html',
+    links:[['Jogar no Adobe Portfolio',P+'khwros-khoros']]
+  }
+};
+
+const EN_DATA = {
+TRACKS: {
+  ux: {
+    title:'Apps I <em>researched, prototyped and tested</em> with real people.',
+    line:'Research, interaction modeling, prototyping and user testing.',
+    intro:'I am a UX/UI designer with a degree from PUC-Rio, finishing a postgraduate program in UX and Human-Computer Interaction. I research, model the interaction, prototype in Figma and validate with the people who will use it.',
+    facts:['Postgrad in UX and HCI · PUC-Rio','Interviews and personas','Heuristic evaluation','Usability testing','Figma'],
+    labels:['The problem','Process','Validation','Outcome']
+  },
+  design: {
+    name:'Design & Social',
+    title:'Brands, campaigns and profiles I <em>design and follow</em> closely.',
+    line:'Visual identity, campaigns, social media and motion, always watching the numbers.',
+    intro:'I have been creating brands, campaigns and content for over 3 years. At Proativa Capital, I handled all the visual work for the 4 companies in the group: rebrandings, brand and voice guidelines, screens, the delivery truck livery and a gamified quiz. Within a month I was leading projects, later with approvals straight from the CEO. Today I run Instagram strategy for clients and track the metrics closely.',
+    facts:['2 rebrandings','4 brand and voice guides','3 new brands under NDA','~5 namings','+67% followers in 3 months'],
+    labels:['The challenge','What I created','How I track it','Outcome'],
+    extra:{label:'Motion'}
+  },
+  games: {
+    title:'Making games was always <em>the dream</em>. So I make them.',
+    line:'Digital and tabletop games, from GDD to interface, tested early and often.',
+    intro:'I love creating stories and mechanics, and I have run many RPG tables as game master. For my senior project, I took a 2D Unity game from concept to Demo Day, and since then I make digital and tabletop games, from the GDD to UI and pixel art. From UX, I bring the habit of testing early and listening to players.',
+    facts:['Unity and C#','GDD','Systems and economy','Narrative and RPG','Pixel art','Playtests'],
+    labels:['The premise','How I built it','Playtest','Outcome'],
+    extra:{label:'Other games and studies'}
+  }
+},
+CASES: {
+  bo: {
+    kicker:'AI-powered travel itinerary app',
+    alt:'Cover of the Bo? app, The Smart Itinerary, with Figma and draw.io',
+    ficha:[['Type','Mobile app, MVP'],['My role','UX/UI designer, solo project'],['Context','Postgrad in UX and HCI, PUC-Rio'],['Year'],['Tools']],
+    resumo:['Planning a trip takes hours across tabs and spreadsheets.','An app with AI-generated itineraries, from scratch or from a ready-made plan.','49 screens, 2 critical issues found and fixed before testing.'],
+    problema:'Planning a trip takes hours of research, tabs and spreadsheets. Careful planners want a tight itinerary; last-minute travelers want a quick starting point. Bo? uses AI to generate itineraries tailored to style, budget and interests.',
+    processo:[
+      ['Personas and scenarios','Two personas guided the project: the planner, who spends too much time organizing everything, and the adventurer, who decides at the last minute.'],
+      ['Interaction modeling','I modeled the app scenes with MoLIC, including the reasoning behind each decision: setting preferences, ready-made itineraries and full trip planning, with warnings that stop users from moving on without enough data.'],
+      ['Identity and prototype','Identity built on the 60-30-10 rule (white, navy and an orange accent) and a 49-screen interactive prototype in Figma.']
+    ],
+    validacao:'I ran a heuristic evaluation of 40 screens using Nielsen\'s heuristics with a severity scale, and found 2 critical issues that blocked the main flow. Then I ran usability tests with think-aloud and a questionnaire, with a pilot and 2 participants aged 23 to 50.',
+    tabelas:[
+      {title:'Heuristic evaluation: critical severities', head:['Where','Issue','Heuristic violated','Severity'], rows:[
+        ['Screen 14','Flight origin assumed without user input','H1 · Visibility of system status','4 · Catastrophic'],
+        ['Screen 24','Dead end: no action button on the final review','H1 · Visibility of system status','4 · Catastrophic'],
+        ['Screen 15','"Select departure" label on the return flight','H4 · Consistency and standards','3 · Major'],
+        ['Screen 31','"Are you sure?" title with confusing options','H5 · Error prevention','3 · Major']]},
+      {title:'Usability test: what users showed', head:['Issue','Why it matters','Recommendation'], rows:[
+        ['Technical airport codes','Raises the risk of errors when buying tickets','Spell out the city name'],
+        ['Linear navigation between days','Makes it hard to edit a specific day','Add an index or overview'],
+        ['Vague morning and afternoon split','Creates uncertainty when planning','Use time slots']]}
+    ],
+    metrics:[[null,'screens prototyped'],[null,'screens in the heuristic evaluation'],['4 and 5','out of 5 for ease of use']],
+    resultado:'The findings became itinerary improvements, such as a day overview and time slots. The 50-year-old participant also suggested a more playful look, with photos of dishes and local tips, which is the next step.',
+    gallery:[[null,'High-fidelity screens: next trip, ready-made itineraries and day by day'],[null,'Itinerary management: details, AI suggestions and daily editing']],
+    links:[['Try the prototype in Figma'],['Old page on Adobe Portfolio']]
+  },
+  gametime: {
+    title:'Time management for gamers',
+    kicker:'Qualitative research on how players control their gaming time',
+    alt:'Research cover with a participant quote: starting to play is easy for me, stopping is harder',
+    ficha:[['Type','User research for an MVP'],['My role','UX researcher, solo project'],['Context','Postgrad in UX and HCI, PUC-Rio'],['Year'],['Methods','Semi-structured interviews, pilot, informed consent, synthesis, personas and scenarios']],
+    resumo:['Players know they play too much, but knowing does not change behavior.','4 interviews with a pilot, a revised guide, synthesis, 2 personas and 4 problem scenarios.','Clear directions for an MVP, such as stopping points and real playtime data.'],
+    problema:'Young adult players struggle to control how long they play, and not because they are unaware. Games use retention mechanics like battle passes, unlimited lives and daily challenges, and the control tools that exist are rarely used. The result is a cycle of playing more than intended, feeling guilty and repeating, which even affects sleep, work and relationships. The research starts from UN SDG 3, Good Health and Well-being.',
+    processo:[
+      ['Question and recruitment','Research question: how do players perceive, organize and try to control their playtime, and what influences it? I recruited 4 players aged 23 to 29 who play at least 3 times a week on mobile and PC, all with signed consent forms and identified by code.'],
+      ['Pilot and guide revision','The pilot interview revealed questions that asked for too much at once, answers with old examples and generic examples about mechanics. I split questions, focused on the present and added unlimited lives and daily rewards, which the participant herself brought up.'],
+      ['Interviews','Final guide with 12 questions in blocks on routine, difficulties and external influences. I recorded audio, transcribed everything and noted tone, hesitations and repeated words.'],
+      ['Synthesis and personas','Each participant\'s goals, obstacles, strategies and key quotes became patterns, divergences and two personas: Lucas, a competitive PC player, and Ana, a casual mobile player.']
+    ],
+    validacao:'The synthesis compared the four participants on each axis and separated what repeated from what diverged.',
+    tabelas:[
+      {title:'Key findings', head:['Pattern','What players showed'], rows:[
+        ['Duties first, games later','Almost everyone\'s strategy. It relies on willpower alone and collapses in the face of a strong trigger.'],
+        ['Hard to stop','Games offer no natural stopping points, and the sense of time gets lost during a session.'],
+        ['Tools rarely used','Only 2 of 4 use any, and both report good results. The problem is adoption, not effectiveness.'],
+        ['Awareness is not enough','Everyone knows the retention mechanics, but that does not translate into behavior change.']]},
+      {title:'Problem scenarios', head:['Scenario','What happens'], rows:[
+        ['Just one more match','Friends calling and back-to-back matches make time slip away.'],
+        ['Battle pass','Money already spent turns leisure into obligation.'],
+        ['Endless games','Unlimited lives and daily challenges remove any stopping point.'],
+        ['Uninstall and reinstall','When control is lost, the way out is drastic, in an all-or-nothing cycle.']]}
+    ],
+    metrics:[[null,'interviews, with a pilot'],[null,'questions in the final guide'],['2 and 4','personas and scenarios']],
+    resultado:'Directions for the MVP: controls built into the game context, natural stopping points, feedback on real versus perceived playtime, and organizing the day with game logic, an idea that came from a participant who tried to plan his routine like in Stardew Valley. The sample is small and from my social circle, so the findings guide the MVP but cannot be generalized.',
+    nota:'Players know they are being retained. The problem is that knowing is not enough to change behavior.',
+    links:[['Report and materials on GitHub']]
+  },
+  mealmate: {
+    kicker:'Recipes, shopping list and weekly meal plan app',
+    alt:'Meal Mate wireframes organized in a flow',
+    ficha:[['Type','Mobile app'],['My role','Lead designer: navigation, UI and prototyping'],['Team','Hugo Ceni and Laila Rebelo'],['Year'],['Tools']],
+    resumo:['Recipes, groceries and pantry are scattered across many places.','Architecture, navigation and most of the app interface.','Final flow refined through tests with students.'],
+    problema:'Cooking all week means finding recipes, building a shopping list and remembering what is already at home. Meal Mate brings these tasks together in screens like Recipes, My Pantry, Shopping List and Weekly Plan.',
+    processo:[
+      ['Pair ideation','We organized ideas and research in Miro, with guidance from the professor, using card sorting, a user story map and app sketches.'],
+      ['Architecture and navigation','I structured the information architecture and navigation flows on my own.'],
+      ['Interface and prototype','I designed most of the high-fidelity interface and interactions in Figma.']
+    ],
+    validacao:'We tested with other people and evaluated the results. The tests helped refine usability and reach a prototype that shows what Meal Mate could become.',
+    links:[['Try the prototype in Figma'],['Old page on Adobe Portfolio']]
+  },
+  partiu: {
+    kicker:'Gamified urban mobility app',
+    alt:'Partiu? logo over a street map, with Figma, Miro, Illustrator and Premiere',
+    ficha:[['Type','App and campaign'],['My role','Product designer with the team and motion designer for the video'],['Team','Hugo, Maria Fernanda and Yasmin'],['Year'],['Tools']],
+    resumo:['During the pandemic, more people started cycling in hostile traffic.','An app with routes, friend rankings and safety tips, plus the project video.','A survey with 63 responses and 4 interviews guiding decisions.'],
+    problema:'During the pandemic, 83.5% of people started to feel unsafe on public transport, and cycling and walking grew by 31.6%. Infrastructure and traffic education did not keep up, and new cyclists faced a hostile environment.',
+    processo:[
+      ['Research','A survey with 63 responses, 4 interviews with users of alternative transport and a user journey.'],
+      ['Ideation','An idea session in Miro, grouped into app, game, posters and products.'],
+      ['Prototype','A Waze-style app for bikes, scooters and skateboards, with routes, friend rankings, achievements and safety tips.']
+    ],
+    validacao:'We tested the prototype on a phone with Figma Mirror to check element sizes and the interaction flow.',
+    metrics:[[null,'survey responses'],[null,'interviews'],['83.5%','felt unsafe on public transport']],
+    resultado:'A system with app, identity, posters and products, presented in an explainer video that I edited and animated.',
+    nota:'Back then I was still learning UX in college. We built the screens together, and that is when the process started to make sense to me.',
+    video:[null,'Project video, edited and animated by me'],
+    gallery:[[null,'Route on the map, friend ranking and transport confirmation'],[null,'Profile, newsletter, achievements and avatar screens'],[null,'Sign-up flow, transport choice and customization'],[null,'Campaign signs'],[null,'Product mockups']],
+    links:[['Full report (PDF)'],['Old page on Adobe Portfolio']]
+  },
+  glpgas: {
+    kicker:'Rebranding and brand system for a gas distributor with 31 years in the market',
+    alt:'Badge, helmet, T-shirt, cards and brand guide with the new GLP Gás identity',
+    ficha:[['Type','Rebranding, Proativa Capital'],['My role','Designer of the identity, guidelines and applications'],['Company','GLP Gás, B2B bulk gas distributor'],['Year'],['Deliverables','Brand guide, tone of voice guide, employee handbook, truck livery and assets']],
+    resumo:['A 31-year-old growing company with no system to hold the brand together across touchpoints.','A rebranding with brand guide, voice guide, employee handbook and applications, from the badge to the truck.','The brand is in use across company materials and was the visual base of the 32nd anniversary quiz.'],
+    problema:'GLP Gás is the anchor company of the group: 31 years in the market and the 8th largest bulk gas distributor in Brazil. It was going through growth and culture change, and the brand needed to keep up with consistency on uniforms, the website, WhatsApp and the trucks. It also lacked a single way of writing, since each department spoke to customers differently.',
+    processo:[
+      ['Logo and versions','I organized the brand system around the flame drop: versions with and without the tagline, compact, vertical, symbol only and the GLP Saúde variation, with clear space, minimum size and incorrect uses.'],
+      ['Color, type and supporting elements','Institutional blue, energy blue and an accent green, Bebas Neue for headlines and Gotham for text. I created stickers and seals like #IssoÉGLP, Eu sou GLP Gás and Pode contar com a gente, which give the materials personality.'],
+      ['Tone of voice and language','A guide so marketing, the website, customer service and WhatsApp sound like the same company: Everyman and Caregiver archetypes, vocabulary, what to avoid, a corporate phrase translator and UX writing rules for interfaces.'],
+      ['Employee handbook','I brought the identity inside the company with an onboarding handbook covering culture, safety, benefits and conduct, in the same brand style.'],
+      ['Applications','Uniforms, badges, helmets, swag, website, social media, signage and the fleet truck livery.']
+    ],
+    validacao:'Everything went through direct approval from the CEO. Almost everything I delivered was approved and well received, and a few times the owner himself called me in to praise the work.',
+    metrics:[[null,'pages in the brand guide'],[null,'pages in the voice guide'],[null,'pages in the employee handbook']],
+    resultado:'The brand gained clear rules anyone can apply, from a wall poster to a truck, and became the base for the 32nd anniversary quiz.',
+    nota:'I handled all the visual work for every company in the group. Even though I was new, people recognized my technical knowledge and my organization.',
+    videos:[[null,'Printed employee handbook']],
+    gallery:[[null,'Swag, cups and stickers'],[null,'Website with the new identity'],[null,'Social media posts and profile'],[null,'Internal signage']]
+  },
+  proativa: {
+    kicker:'Rebranding and guidelines for the services company of a 4-company group',
+    alt:'Badge, lanyard, folder and brand guide with Proativa Capital\'s navy and gold identity',
+    ficha:[['Type','Rebranding, Proativa Capital'],['My role','Designer of the identity, guidelines, videos and applications'],['Company','Proativa Capital, the group\'s BPO'],['Year'],['Deliverables','New logo, brand guide, tone of voice guide, logo animation, screen videos, founder media kit and assets']],
+    resumo:['A new company that needed to define its culture and identity before growing.','New logo with a concept rationale, brand guide, voice guide, logo animation, reception screen videos and the founder\'s media kit.','A parent brand that connects with the other companies in the group.'],
+    problema:'Proativa Capital centralizes marketing, finance, legal, IT and HR for a group that includes GLP Gás, Simeão Advogados and Capital Empreendimentos. The company was just starting and wanted to build its culture intentionally, so culture would guide growth, not the other way around. The brand had to convey technical authority without losing its human side.',
+    processo:[
+      ['New logo and rationale','The old logo used an infinity symbol that said nothing about the company. Starting from its values, I defined three pillars (direction, trust and evolution) and drew a P with a rising stroke: the circle brings solidity and focus, the stroke brings growth, and the uppercase type conveys authority. I presented the proposal with a before and after and color tests.'],
+      ['Symbol and versions','The P became the brand\'s core element, used alone on avatars, favicons, watermarks and swag, with horizontal, compact, vertical and wordmark versions.'],
+      ['Color and supporting shapes','Navy, bluish gray and gold, with the symbol, structural lines and simple geometric shapes to organize covers, presentations and posts.'],
+      ['Tone of voice','Sage and Caregiver archetypes, with what to write and what to avoid, brand vocabulary, a blacklist, a phrase translator, channel adaptation and UX writing rules.'],
+      ['Founder\'s personal brand','A media kit for the CEO, Natalino Simeão, with his bio, the 4-company ecosystem and his profile reach numbers, for partnerships and talks.'],
+      ['Motion and screens','I animated the logo reveal in horizontal and vertical versions and built the videos for the vertical reception screen, presenting the group, its values and each company.'],
+      ['Applications','Uniforms, badges, stationery, facade, posts and signage.']
+    ],
+    videos:[[null,'New logo animation'],[null,'Vertical reception screen video']],
+    validacao:'Approvals went straight to the CEO. The same values appear in the Proativa and GLP Gás guides, which keeps the group consistent even with different brands.',
+    metrics:[[null,'pages in the brand guide'],[null,'pages in the voice guide'],[null,'companies in the same ecosystem']],
+    resultado:'The group gained a clear parent brand, with color, type and writing rules anyone on the team can follow.',
+    gallery:[[null,'Uniforms'],[null,'Screens and posts'],[null,'Signage and architecture']]
+  },
+  quiz32: {
+    title:'32nd Anniversary Quiz',
+    kicker:'Gamified internal campaign for GLP Gás\'s anniversary',
+    alt:'Quiz 32 anos cover in navy and green, with GLP Gás stickers',
+    ficha:[['Type','Gamified internal marketing, Proativa Capital'],['My role','Designed the mechanics, visuals, budget and engagement strategy'],['Company'],['Year'],['Deliverables','Mechanics and scoring, communication plan, prizes, executive deck and event identity']],
+    resumo:['Celebrate 32 years and reinforce safety and culture across shifts.','A daily WhatsApp quiz with points, a weekly ranking, giveaways and opening and closing events.','A project highly rated and praised by management.'],
+    problema:'GLP Gás was turning 32 and wanted to celebrate with the whole team, including drivers and helpers who spend the day on the road. At the same time, safety rules and company history needed reinforcing without feeling like training.',
+    processo:[
+      ['Pillars','Three pillars guided everything: engage and entertain, teach and reinforce, recognize and reward.'],
+      ['Mechanics','One question a day in the WhatsApp group, with 24 hours to answer, so no one lost out because of their shift. 100 points per correct answer, a bonus for the 5 fastest and points for creativity on open answers.'],
+      ['Questions','Four categories: safety and technical knowledge, company history since the first van, fun facts about the people and creative questions that became testimonials.'],
+      ['Journey and pace','An opening coffee break with the CEO, a weekly ranking with Top 10 and Top 3, weekly highlights (fastest, most creative, biggest climb), weekly giveaways and raffles, up to the finale revealing the champions.'],
+      ['Prizes and budget','A getaway stay as the grand prize, weekly giveaways and the full campaign budget, presented to the board.'],
+      ['Identity','A "32 years with you" seal, lines about the company\'s history and pieces for bulletin boards, WhatsApp and social media, all within the GLP Gás brand system.']
+    ],
+    validacao:'The weekly ranking was the campaign\'s thermometer: each week the scoreboard was updated, highlights got visibility and the team\'s creative answers became social media content.',
+    metrics:[[null,'question per day'],[null,'to answer, on any shift'],[null,'question categories']],
+    resultado:'The campaign turned the anniversary into a game the whole company could play and was highly praised by management. It is the project that best brings together my three tracks: brand, experience and game mechanics.',
+    nota:'I handled the visuals, the budget, how it would work, the strategy to keep people engaged and the interaction with the audience.',
+    gallery:[[null,'Coffee breaks, multichannel communication and the final celebration'],[null,'Closing slide of the presentation']]
+  },
+  maxgalore: {
+    kicker:'Instagram strategy and design for a character artist',
+    alt:'@maxgalore_ profile with 815 followers and three posts: artwork, Half Body carousel and portrait',
+    ficha:[['Type','Social media'],['My role','Strategist, designer and editor'],['Client','Max Galore (Nycson Quintanilha), character artist'],['Period','Since July 2026'],['Tools']],
+    resumo:['A small profile, an audience abroad and no clear path to a commission.','Strategy, language, a visual system by commission tier and a Tally funnel.','+67% followers and 27.7K views in 90 days.'],
+    problema:'Before I took over, the profile had 487 followers and the bio led to a generic link page. Most of the audience is outside Brazil, 38% in the United States, so the content needed to speak English and lead straight to commissions. The partnership started on my senior project, MAR&SEA, where Nycson was the artist.',
+    processo:[
+      ['Research and language','Audience and profile research, and a language guide with tone, terms and formats.'],
+      ['Visual system','Frames with one color per commission tier (Card Style, Full Body, Half Body, Campaign Face and Splash Art) and bold type on carousels.'],
+      ['Cadence and funnel','3 posts a week (artwork, a reel about the artwork and a post with a call to action), Reviews and Style Menu highlights and a Tally commission form organized by packages.']
+    ],
+    validacao:'I track the metrics on my own dashboard. Transformation reels, from sketch to final art, and RPG POV reels were the formats with the most reach, up to 4.3K views.',
+    metrics:[[null,'followers (+67%)'],['27.7K','views in 90 days'],[null,'of views from non-followers']],
+    resultado:'Since October 2026, I also manage the artist\'s X and YouTube Shorts.',
+    nota:'I built the strategy and the posts, the language, the research and the analysis, down to the choice of type and color.',
+    gallery:[[null,'Carousels explaining each commission tier'],[null,'Bio with a commission call to action and Reviews and Style Menu highlights'],[null,'Profile grid with artwork, reels and carousels']],
+    links:[['See the profile on Instagram']]
+  },
+  icones: {
+    title:'Icons for a card game',
+    kicker:'Freelance element and symbol icons for a card game',
+    alt:'Eight black silhouette symbols: spear, mammoth, insignia, crown, shield with sword, chariot and two shields',
+    ficha:[['Type','Freelance, game iconography'],['My role','Icon designer'],['Year'],['Deliverables','8 element icons and 8 symbols']],
+    resumo:['Players need to recognize each icon at a glance, at card size.','Two sets: elements in colored medallions and symbols in silhouette.','16 icons in a single visual family.'],
+    problema:'A card game needed icons players could read at a glance, even small, in the corner of a card. There were two sets: the game\'s 8 elements and a family of symbols.',
+    processo:[
+      ['Elements','Each element got its own symbol and color in a glass-shine medallion: an eye for Void, a spiral for Grace, lightning for Influency, a flame for Rage, a drop for Potency, scales for Order and leaves for Primal, plus Neutral.'],
+      ['Symbols','Silhouettes with angular cuts and the same stroke weight, so they stay legible at small sizes: spear, mammoth, crown, shield with sword, chariot and a rank insignia.'],
+      ['Family','The same shield appears filled, outlined and combined with the sword, which keeps the set consistent.']
+    ]
+  },
+  jacare: {
+    kicker:'Visual identity for a music festival',
+    alt:'Jacaré na Pista logo in green on purple',
+    ficha:[['Type','Event branding (fictional)'],['My role','Visual designer: logo, mascots and applications'],['Team','Hugo Ceni, Maria Fernanda and Yasmin Mansur'],['Year'],['Tools']],
+    resumo:['Give a face to a festival celebrating the return to social life.','Logo, line-up mascots, poster, wristbands, products and an animated feed.','A complete identity, from logo to merchandise.'],
+    problema:'Create the identity of a festival celebrating the return to social life after vaccination. The concept combines two things that marked the pandemic in Brazil: the alligator that strolled down an avenue in Rio and the joke that the vaccine would turn people into alligators. We embraced it with humor: a festival where the audience and artists, finally vaccinated (and transformed), take over the streets. The alligator stops being a fear and becomes a symbol of immunization.',
+    processo:[
+      ['Logo and mascots','I designed the logotype and vectorized the mascots. Instead of generic characters, the line-up artists themselves became alligators, keeping their stage outfits and personality, so the audience could have fun recognizing their idols.'],
+      ['Color and type','An acid palette (neon green, purple and pink) and heavy type, working both in mobile ads and in urban signage at night.'],
+      ['Applications','A bus-stop format poster (1.20 x 1.80 m), ticket wristbands and patterns.'],
+      ['Social and products','Feed illustrations and animations in Photoshop and Premiere, plus T-shirts, cups, caps and stickers.']
+    ],
+    resultado:'A complete identity, from logo to merchandise, with an animated Instagram feed.',
+    gallery:[[null,'The line-up turned into alligators'],[null,'Poster at the bus stop and on a totem'],[null,'Mascot sketches'],[null,'Poster tests'],[null,'Patterns'],[null,'Festival store products']],
+    links:[['Old page on Adobe Portfolio']]
+  },
+  ticrj: {
+    title:'1st TIC-RJ Conference',
+    kicker:'Identity for Rio de Janeiro\'s first ICT conference',
+    alt:'Panel with the 1st TIC-RJ Conference brand on a wall, with a person walking by',
+    ficha:[['Type','Event visual identity'],['My role','Designer, in collaboration with my supervisor'],['Context','Internship at PRODERJ'],['Period','2022 to 2024']],
+    resumo:['A new state conference needed its own identity.','Three logo options, a color and type system and the applications.','Brand applied to panels, badges, bottles and promotion.'],
+    problema:'Create a new identity for the first Information and Communication Technology conference in the state of Rio de Janeiro.',
+    processo:[
+      ['Options','Three logo options, each with its own palette, presented for selection.'],
+      ['System','Nexa Light and Nexa Bold type, vertical and horizontal versions and use on light and dark backgrounds.'],
+      ['Applications','Panels, badges, bottles and promotional pieces.']
+    ],
+    gallery:[[null,'Conference bottles'],[null,'The brand in the palette colors']],
+    links:[['Old page on Adobe Portfolio']]
+  },
+  proderj: {
+    kicker:'Communication for a Rio de Janeiro state technology company',
+    alt:'PRODERJ 55th anniversary identity with circuits and the Digital Transformation seal',
+    ficha:[['Type','Design internship'],['My role','Designer; event identities with my supervisor'],['Period','2022 to 2024'],['Tools']],
+    resumo:['Internal and external communication for a public technology company.','Campaign posts, the 55th anniversary identity, medals and motion.','Pieces used at an event attended by the governor.'],
+    problema:'Produce PRODERJ\'s internal and external communication, from holiday posts to events attended by the governor.',
+    processo:[
+      ['Social media','Campaign posts like Pink October and Yellow September, holidays and the Minuto Digital series.'],
+      ['55 years','Identity for PRODERJ\'s 55th anniversary event, with the Technological Merit Medal.'],
+      ['Motion','Videos and motion graphics for social media, with pixel art characters.']
+    ],
+    resultado:'Pieces published on the official channels and used at an event attended by the governor of Rio de Janeiro.',
+    gallery:[[null,'Technological Merit Medal and the 55th anniversary event'],[null,'Campaign and holiday posts'],[null,'Pixel art characters for the videos']],
+    links:[['Old page on Adobe Portfolio']]
+  },
+  toca: {
+    kicker:'A campaign for the cats on the PUC-Rio campus',
+    alt:'Illustrated cat paw under the title Toca na Patinha',
+    ficha:[['Type','Campaign and communication system'],['Team','Two-person project'],['Year'],['For','FUM, the campus cat volunteer group']],
+    resumo:['Three volunteers caring for every cat on campus on their own.','Identity, NFC signs, a new feed and crowdfunding.','A system FUM can keep running without help.'],
+    problema:'FUM cares for the campus cats with only three people doing everything: social media, bazaar, rescues and feeding. The university supports neutering but does not fund the rest.',
+    processo:[
+      ['Research','A guided campus tour with a professor and an interview with the person in charge of FUM.'],
+      ['Identity','A mini guide with logo, alternative versions, palette and type.'],
+      ['System','NFC signs linking to Instagram posts, a feed redesign and a crowdfunding page with goals from R$ 700 to R$ 4,000 a month.']
+    ],
+    resultado:'A system connecting signs, Instagram, bazaar and crowdfunding, designed so FUM can maintain it on its own.',
+    video:[null,'Campaign presentation video'],
+    gallery:[[null,'NFC signs around campus'],[null,'Mini guide with the FUM logo and alternative versions']],
+    links:[['Old page on Adobe Portfolio']]
+  },
+  jester: {
+    kicker:'2D animation about the cycle of hatred created by revenge',
+    alt:'Concept art of the jester James Hawk, from sketch to color',
+    ficha:[['Type','Short 2D animation'],['My role','Direction, script and animation'],['Context','Principles of Animation course, PUC-Rio'],['Length','1 minute']],
+    resumo:['Tell a revenge story in one minute, without dialogue.','Characters, storyboard and animation, all by me.','A finished short applying the classic principles of animation.'],
+    problema:'Tell, in one minute and without dialogue, a story about the cycle of hatred created by revenge, applying the classic principles of animation.',
+    processo:[
+      ['Concept art','I developed the jester James Hawk from sketch to the final colored version.'],
+      ['Storyboard','I planned cuts, framing and pacing frame by frame.'],
+      ['Animation','I animated the short applying timing, anticipation and exaggeration.']
+    ],
+    video:[null,'A Jester Deal, 1 minute'],
+    gallery:[[null,'Full storyboard']],
+    links:[['Old page on Adobe Portfolio']]
+  },
+  semcomb: {
+    title:'Out of Fuel (Sem Combustível)',
+    kicker:'Storyboard and animatic for a sci-fi comedy',
+    alt:'Hand-lettered title Sem Combustível, with the subtitle Storyboard and Animatic',
+    ficha:[['Type','Short film pre-production'],['My role','Direction, script and storyboard (solo)'],['Tool'],['Animatic length','3:30']],
+    resumo:['An unlucky astronaut gets stranded in space without fuel.','Script, full storyboard and an animatic with scene timing.','Pre-production done, with the comedy pacing validated.'],
+    problema:'A sci-fi comedy short following an unlucky astronaut stranded in space after running out of fuel. The project was a study of visual storytelling and timing.',
+    processo:[
+      ['Script','I wrote the story and the jokes around visual action, with almost no dialogue.'],
+      ['Storyboard','I planned framing and action continuity in every panel.'],
+      ['Animatic','I turned the drawings into a synced draft video to validate the comedy pacing and story clarity before final animation.']
+    ],
+    resultado:'Pre-production done: script and timing finalized.',
+    video:[null,'Full animatic, 3:30'],
+    gallery:[[null,'The astronaut in the ship'],[null,'Storyboard'],[null,'Ship color key']],
+    links:[['Old page on Adobe Portfolio']]
+  },
+  maresea: {
+    kicker:'2D maritime simulation and exploration game',
+    alt:'MAR&SEA logo with an anchor between the words and the tools used',
+    ficha:[['Type','Digital game, senior project'],['My role','Game designer, programmer, artist and animator'],['Team','With Nycson Quintanilha (art) and Hannah Ruth (animation)'],['Engine','Unity and C#'],['Year']],
+    resumo:['A game to relieve stress, not cause more.','GDD, Unity programming, UI and animation, with research guiding every decision.','A playable tutorial presented and tested at the PUC-Rio Demo Day.'],
+    problema:'How do you make a game that helps relieve everyday stress? In MAR&SEA, Drake Redscale, a wingless dragon, wins a ship in a bet and has to repair it after a storm.',
+    processo:[
+      ['Research','A survey with 66 responses, an analysis of 13 games, a focus group with 6 players and an interview with a psychologist about what makes a game relaxing or stressful. The survey showed that more and more people play to unwind, and the most cited relaxing games were Stardew Valley, Minecraft and The Sims.'],
+      ['Design decisions','No punishment by luck, a calm pace, a soft palette and gradual progression, guided by the research and organized in a Game Design Canvas and a one-page design document.'],
+      ['Scope and production','Scope locked into a one-semester playable tutorial: resource gathering, item crafting, a timing minigame and ship repair. I organized everything in a color-coded Gantt chart (programming, art, HUD, report and playtests) linked to the GDD, and used MoSCoW to decide what went into the tutorial.'],
+      ['Art direction','A sea and islands moodboard, a palette of navy, blue, orange and aqua, and a cartoon style. The characters went from hand sketches to final art, in partnership with Nycson.'],
+      ['HUD','Interaction bar, item slots, crafting menu, dialogue boxes and map, sketched before production.'],
+      ['Animation','Drake\'s cycles and visual action feedback, made with Hannah, so the game responds to every click.']
+    ],
+    validacao:'I ran focused playtests on parts of the game throughout development. The most complete one was at the PUC-Rio Demo Day, with a themed table, a poster, sticker giveaways and team signs with QR codes. Players asked for tweaks to some mechanics, clearer explanations of certain systems, larger text highlighting the keys and a tutorial with fewer commands. Everything was logged and applied to the game.',
+    metrics:[[null,'survey responses'],[null,'games analyzed'],[null,'players in the focus group']],
+    resultado:'A playable tutorial presented at Demo Day. The next steps are already in the GDD, such as a skill system that evolves with the player\'s actions, and the plan is to seek crowdfunding after the tutorial.',
+    nota:'Juggling so many roles in game development was challenging, but it gave me a much deeper understanding of every stage.',
+    video:[null,'MAR&SEA gameplay and process'],
+    gallery:[[null,'MAR&SEA app icon and logo'],[null,'Opening illustration: the ship attacked in the storm'],[null,'Game title screen'],[null,'Drake Redscale, the main character'],[null,'Admiral Abyssal, the antagonist'],[null,'Item crafting'],[null,'Ship repair'],[null,'Playtest at the PUC-Rio Demo Day'],[null,'Themed Demo Day table'],[null,'Project presentation poster'],[null,'Sticker giveaways and team signs with QR codes'],[null,'Resource gathering with the timing minigame']],
+    links:[['Old page on Adobe Portfolio']]
+  },
+  colmeia: {
+    title:'Protocol Hive (Protocolo Colmeia)',
+    kicker:'Sci-fi tabletop RPG for 16 players',
+    alt:'Protocolo Colmeia character cards with attributes and heart-based health',
+    ficha:[['Type','Tabletop game, one-shot session'],['My role','Game designer, game master and art director'],['Year'],['Tools']],
+    resumo:['An RPG table for 16 people, many playing for the first time.','A simplified D20 system, 8 level-design rooms and all the table materials.','A well-received session and a clear list of what to simplify.'],
+    problema:'Build, in one month, an RPG session for 16 people at my birthday party, with many who had never played before.',
+    processo:[
+      ['System','Simplified D20, heart-based health and turns with movement, main action and bonus action.'],
+      ['Content','Classes and mechanical platforms, enemies, a multi-phase boss, legendary items, injuries and an overload clock that raises tension every turn.'],
+      ['Level design','8 rooms of the ship GH061 on a modular board, with cover, difficult terrain and hacking and healing spots.'],
+      ['Art direction','Cards, tokens, maps and invitations made with generative AI from a standardized prompt formula.'],
+      ['Invitation and kit','The invitation was a countdown in the ship terminal style. Each player got a pouch with the 26 artwork, their character card and a themed dice kit.'],
+      ['Table','Player sheet with a turn reference, equipment and class decks, modular map, dice tower and the game master screen.']
+    ],
+    validacao:'The session was well received and showed what to simplify: the system was more complex than a group of 16 beginners needed.',
+    metrics:[[null,'players at the table'],[null,'level-design rooms'],[null,'month from zero to session']],
+    nota:'I made this game for my birthday. The idea was to set up an RPG table for 16 players with me as game master.',
+    gallery:[[null,'Me running the session'],[null,'Players setting up their characters on the modular map'],[null,'The full table on my birthday'],[null,'Full character sheet'],[null,'Equipment and class cards']]
+  },
+  mestre: {
+    title:'Pocket Master (Mestre de Bolso)',
+    kicker:'A card deck for creating RPG stories',
+    alt:'Mestre de Bolso cover on parchment, an RPG tool',
+    ficha:[['Type','Card game and RPG tool, tested physical prototype'],['My role','Lead game designer and writer'],['Team','Hugo Ceni, Thiago Weber, Anne Blumer and Eduardo Guzman'],['Year'],['Tools']],
+    resumo:['Game masters freeze when they need to improvise.','An oracle deck with cards that combine into story seeds.','Players built plots in under 2 minutes.'],
+    problema:'Game masters freeze when they need to improvise. Pocket Master works as a narrative oracle: cards that, combined, generate the seed of a story for any system.',
+    processo:[
+      ['Categories','Plot hooks, archetypes, settings and twists that, combined, generate story seeds for any system, from D&D to Cthulhu.'],
+      ['Combination logic and GDD','I created all the combination logic and wrote the GDD. The challenge was writing descriptions generic enough for any genre and specific enough to inspire.'],
+      ['Rapid prototype','Ready-made assets in the card art to focus on function and legibility.']
+    ],
+    validacao:'We printed the deck and tested it with groups of students. Players built plots in under 2 minutes.',
+    metrics:[[null,'to build a plot'],[null,'card categories']],
+    gallery:[[null,'Past, Present, Future and RPG system cards'],[null,'Card icon tests']],
+    links:[['Old page on Adobe Portfolio']]
+  },
+  clicker: {
+    title:'Culinary Clicker (Clicker Culinário)',
+    kicker:'An incremental game about Brazilian cuisine',
+    alt:'Clicker Culinário interface with stalls, a street market and food trucks',
+    ficha:[['Type','Browser game'],['My role','Game design, UI and front-end'],['Year'],['Tools']],
+    resumo:['Bring interface design and programming together in a browser game.','Incremental economy, vector UI and front-end, with AI speeding up the logic.','A game with unlockable stalls, farms and food trucks.'],
+    problema:'Explore where interface design meets game programming, in an incremental game about Brazilian ingredients, from cassava to açaí.',
+    processo:[
+      ['Sketch','Hand sketches to define the screen hierarchy and economic progression.'],
+      ['Interface before code','Assets in Illustrator and a responsive CSS grid before the logic.'],
+      ['Logic with AI','Detailed prompts in Gemini for the base, with review, debugging and integration done by me.']
+    ],
+    resultado:'An economy with stalls, farms that multiply income and unlockable food trucks, with costs that rise with every purchase.',
+    gallery:[[null,'Main screen sketch']],
+    links:[['Code on GitHub'],['Old page on Adobe Portfolio']]
+  },
+  steamvapor: {
+    kicker:'Top-down roguelike in Unity',
+    alt:'Steam Vapor title, a technical study project in Unity',
+    ficha:[['Type','Prototype, technical study'],['My role','Solo development: programming, game design and pixel art'],['Engine','Unity and C#'],['Year']],
+    resumo:['Understand how art and code talk to each other inside Unity.','Enemy waves, combat, game loop, HUD and all the pixel art.','The technical lab that prepared me for my senior project.'],
+    problema:'Before my senior project, I wanted to understand how art and code talk to each other inside Unity, owning the whole pipeline.',
+    processo:[
+      ['Systems','Enemy waves with rising difficulty, shooting with cooldown and a health system.'],
+      ['Game loop','Win and lose states and a score HUD.'],
+      ['Art','Characters, enemies and scenery in pixel art.']
+    ],
+    nota:'Steam Vapor was my big development lab.',
+    gallery:[[null,'Pixel art sprites: ships, enemies and effects'],[null,'Ship animation on the water'],[null,'Game arena in Unity']],
+    links:[['Old page on Adobe Portfolio']]
+  },
+  gastro: {
+    kicker:'Mobile game about Brazilian cuisine for two players',
+    alt:'Gastromania logo with a chef hat on yellow checkers',
+    ficha:[['Type','Mobile game project, pre-production'],['Team','Breno Dutra, Felipe Gomes, Hugo Ceni, Norton Serrano and Pedro Henrique de Sá'],['Context','Design to Build course, PUC-Rio'],['Year']],
+    resumo:['Almost no game on the market shows Brazil and its culture.','Research, concept, gameplay, visual identity, monetization and budget.','A free casual game, designed for any phone.'],
+    problema:'Many Brazilians play games, but almost none show Brazil. The group set out to celebrate Brazilian culture through digital games. The first research looked at folklore and showed the theme required great care, because many figures come from Indigenous peoples and were distorted. So we switched to cuisine: a game where you cook more Brazilian dishes than your opponent in a frantic kitchen.',
+    processo:[
+      ['Research','Games with historical and mythological themes, data on mobile and gaming access in Brazil and a critical analysis of the concept of folklore.'],
+      ['Parameters','Free and available on any phone, a casual genre with short matches and simple mechanics, for all audiences.'],
+      ['Gameplay','Three principles: move by dragging your finger, interact differently at each station (chop, heat, mix) and deliver the dish, rated by the customer.'],
+      ['Identity','Three concepts guided everything: exploration, frantic and appetizing. They gave us the name, which blends gastronomy and mania, and the brand\'s mustard yellow.'],
+      ['Business','Monetization with skins and cards in two currencies and a budget for 6 months of production, built with guidance from Professor Guilherme Xavier.']
+    ],
+    gallery:[[null,'3D prototype of the kitchen and prep stations'],[null,'Presentation roadmap, with the collectible cards']]
+  },
+  shooter: {
+    kicker:'Browser game with match data visualization',
+    alt:'Shooter screen with the play area, instructions and match history charts',
+    ficha:[['Type','Browser game'],['My role','Solo development'],['Context','Data Visualization course, PUC-Rio'],['Tools']],
+    resumo:['Make a game that shows players their own progress in data.','I started a runner in Unity and moved to a JavaScript shooter.','Charts of enemies, shots and time per match.'],
+    problema:'The course asked for a game focused on data visualization. I started with Squarush, a 2D Unity runner where a square runs on its own, jumps obstacles and, at the end, sees the run stats in charts.',
+    processo:[
+      ['Squarush in Unity','I implemented the runner\'s base logic, but building data charts in Unity proved too complex and slow for the deadline.'],
+      ['Change of course','I reassessed the scope and moved to a side-scrolling shooter in HTML, CSS and JavaScript, where I had more control over the visuals.'],
+      ['Game and data','Ship, enemies and shooting in JavaScript, with Gemini helping fix the logic. Chart.js charts show enemies destroyed, shots fired and time for each match.']
+    ],
+    resultado:'A minimalist game where players follow their own progress match after match.',
+    nota:'The biggest lesson was defining scope: understanding execution limits and prioritizing the essentials is what kept the project moving.',
+    gallery:[[null,'First version, Squarush, in Unity']]
+  },
+  pixelart: {
+    kicker:'Game sprites and a painting that glows under black light',
+    alt:'Pink, yellow and green pixel art octopus on a black background',
+    ficha:[['Type','Pixel art for games and physical art'],['My role','Pixel artist'],['Projects','McFly Pro Skater, Physics project, Steam Vapor, Slime Destruct, Khoros and studies'],['Period','2020 to 2026']],
+    resumo:['Communicate character and function with few pixels and few colors.','Characters, animations, objects, scenery and a hand-painted pixel art piece.','A visual language that shows up in many of my games.'],
+    problema:'Pixel art is in many of my games, from Khoros to Steam Vapor. Here I gather the work where it was the focus, including one piece I took from digital to paper.',
+    processo:[
+      ['McFly Pro Skater','A group project for the Fundamentals of Digital Media course in 2020: a runner where the character escapes by holding on to vehicles. I made the pixel art for the character, vehicles, machines, items and skateboard skins.'],
+      ['Pixel art that glows','For a Physics project, I turned digital pixel art into a painting with fluorescent paint that lights up under black light. The design was planned on the computer and painted by hand, square by square.'],
+      ['Characters','Characters that read clearly in few pixels, from a wizard with a flaming hat to a chef, a banana and a boi-bumbá.'],
+      ['Animation','Front and side walk cycles, with pose variation on every frame.'],
+      ['Objects and scenery','A food truck, top-down furniture, icons and space objects, each with its own shading and highlights.'],
+      ['In my games','Ships, enemies and effects from Steam Vapor, the slime and lab from Slime Destruct and the 8x8-pixel, 3-color rooms from Khoros.']
+    ],
+    gallery:[[null,'The final painting under black light']]
+  },
+  lonestar: {
+    kicker:'Space runner concept for mobile',
+    alt:'Lone Star concept cover on a purple space background',
+    ficha:[['Type','Game concept and GDD'],['My role','Game designer, solo project'],['Context','Pitch for the PUC-Rio game group'],['Platform','Mobile']],
+    resumo:['An astronaut forgotten in hibernation searches for a new home in space.','Story, core mechanic, progression, obstacles and an upgrade tree.','A GDD where each upgrade changes how you move.'],
+    problema:'In the year 3045, an astronaut wakes up from a hibernation pod and finds that Earth was abandoned after an epidemic. Alone, with a suit and a thruster, he crosses space debris in search of a new home.',
+    processo:[
+      ['Core mechanic','Tapping one side of the screen fires a jet that pushes the astronaut the other way. Planet orbits work as slingshots, but you have to be careful not to get stuck in them.'],
+      ['Progression','The game advances by distance. Abandoned stations and ships work as checkpoints, where collected space junk becomes suit upgrades.'],
+      ['Obstacles and space','Planets with orbits, spinning asteroids that launch the player in an arc, high-speed debris and collectible space junk, each with its own frequency and role.'],
+      ['Upgrades','More boosts, a junk collector, suit resistance, a grappling hook to gain momentum and a missile launcher that also pushes the player. Getting hit can break suit parts and disable upgrades for a while.']
+    ],
+    resultado:'The concept did not move forward, but the GDD shows how I think about systems: most upgrades change how you move, not just a number.'
+  },
+  solar: {
+    title:'Solar System',
+    kicker:'Immersive VR experience on Spatial',
+    alt:'Solar System title with Spatial, Unity and Blender',
+    ficha:[['Type','Educational VR experience'],['My role','3D artist and level designer'],['Platform','Spatial.io, browser and VR headsets'],['Tools']],
+    resumo:['Explore the Solar System by walking among the planets.','Modeling, textures, lighting and level design for web and VR.','Light enough to run on phones and on the Quest 2.'],
+    problema:'Create an immersive, educational experience where people walk among the planets, see detailed textures and feel the scale of the Solar System. It had to look good and still be light enough to run in a browser and on VR headsets.',
+    processo:[
+      ['Modeling and textures','Planets and the Moon in Blender, with UV mapping, diffuse and normal maps and an optimized polygon count.'],
+      ['Implementation and light','Spatial-compatible materials in Unity, a nebula skybox, directional light simulating the Sun and light baking, plus collisions, spawn and teleport with the Spatial SDK.'],
+      ['Scale','At real scale, the planets would be tiny next to the Sun. I made each planet grow as the player approaches and the Sun shrink, keeping the focus on the planet without losing the sense of vastness.'],
+      ['Reading','Text only appears when the player gets close to a planet, split into two panels: technical data on the left and fun facts on the right. The orbit line fades at that moment so it does not get in the way.'],
+      ['Orbits and polish','Orbit lines as a visual guide for each planet\'s path, and animations smoothed based on feedback.']
+    ],
+    validacao:'Development was iterative: continuous testing and feedback pointed out what to adjust at each stage, from scale to text legibility and animations.',
+    resultado:'Low draw calls so the experience runs on phones and headsets like the Quest 2.',
+    nota:'This project helped me grow a lot in user experience for 3D environments in Unity and understand how VR headsets work.',
+    gallery:[[null,'Avatar walking next to the Sun'],[null,'Scene setup in Unity'],[null,'Mercury fun facts panel'],[null,'The Sun at scale']],
+    links:[['Visit the space on Spatial'],['Old page on Adobe Portfolio']]
+  },
+  slime: {
+    kicker:'2D action platformer in Construct 3',
+    alt:'Green pixel art slime over the Slime Destruct title',
+    ficha:[['Type','2D platformer and shooter'],['My role','Solo development: game design, visual scripting and art'],['Engine'],['Status','Available on itch.io']],
+    resumo:['A biological experiment tries to escape a secret military base.','Levels, enemies with AI, health and win and lose conditions.','My first game with real programming logic.'],
+    problema:'The player controls a Slime, a biological experiment, trying to escape a secret military base. The story drives the gameplay: the further it gets, the more dangerous the obstacles, reflecting the base\'s tightening security.',
+    processo:[
+      ['Progression','Difficulty tied to the story, with the base\'s security tightening every level.'],
+      ['Systems','Enemy AI, health variables and win and lose conditions in Construct\'s Event Sheets.'],
+      ['Art','Characters, scenery and interface in pixel art.']
+    ],
+    nota:'This is where I went from just building screens to developing systems.',
+    gallery:[[null,'Slime in the lab, with the controls hint'],[null,'Outdoor level with an enemy'],[null,'Level built in the Construct editor']],
+    links:[['Play on itch.io'],['Old page on Adobe Portfolio']]
+  },
+  khoros: {
+    kicker:'My first game, made in Bitsy',
+    alt:'Title χώρος (Khoros), my first game',
+    ficha:[['Type','Narrative exploration game'],['My role','Solo development'],['Tool']],
+    resumo:['Create mystery and loneliness with 3 colors per room and 8x8 sprites.','Story, rooms, items and dialogue in pixel art.','I learned to tell a story through the environment, without cutscenes.'],
+    problema:'While handling his technology, the renowned astronaut and scientist Luiz makes a mistake and ends up in an unknown place. The challenge was to create an atmosphere of mystery and space loneliness with very limited resources: only 3 colors per room and 8x8-pixel sprites.',
+    processo:[
+      ['Narrative','A short story told through dialogue along the exploration.'],
+      ['Exploration','Four planets (Water, Pixelated, Horn and Hazel), each with its own 3-color palette, connected by rooms, caves and items like keys.'],
+      ['Art','Characters and scenery in pixel art, made in Bitsy\'s own editor.']
+    ],
+    resultado:'I learned to tell a story without cutscenes, only through the player\'s interaction with objects and scenery, and that technical limits can push more creative visual and writing solutions.',
+    gallery:[[null,'Opening and one of the rooms'],[null,'Room with a key and exits']],
+    links:[['Play on Adobe Portfolio']]
+  }
+}
+};
+
+const UI = {
+pt:{sig:'ByDkHappy · Design que facilita e diverte', title:'Hugo Ceni · Designer de UX/UI, marcas e jogos', navAria:'Trilhas do portfólio', designTab:'Design e Social', langAria:'Idioma',
+ contactAria:'Contato', contactLabel:'Contato', contactTitle:'Bora conversar?', contactText:'Aberto a vagas presenciais no Rio, remotas e PJ.', copy:'Copiar e-mail', copied:'E-mail copiado', selected:'Selecionado, use Ctrl+C',
+ h1:['Interfaces','marcas','e jogos'], heroP:'Sou o Hugo, designer formado pela PUC-Rio. Meu ponto forte é achar onde um sistema falha e resolver rápido, seja num app, numa marca ou numa mesa de jogo. Gosto de design funcional e feito com carinho, que ninguém precisa de ajuda para usar. Escolha a trilha que conversa com a sua vaga.',
+ photoAlt:'Hugo sorrindo em frente a um mosaico colorido', whyLabel:'Por que ByDkHappy?', whyText:'DK era o nome de um time que eu tinha com uns amigos, e a sigla ficou comigo: soa bem e funciona como um Design Kit. Happy é o nome do meu gato, que ganhou o nome do gato de Fairy Tail.',
+ tilesCap:'Azulejo ByDkHappy', tilesClick:'Clique para girar', tileAria:'Girar peça', projects:'projetos',
+ trailAria:'Trajetória', trailLabel:'Trajetória', trailTitle:'Onde eu já trabalhei',
+ tl:[['Desde jul 2026','Social media e designer · Freelancer','Estratégia, conteúdo e identidade visual para um character artist e um escritório de arquitetura.'],
+     ['2026 · 6 meses','Designer estratégico e visual · Proativa Capital','Toda a parte visual das 4 empresas do grupo. Em um mês passei a liderar os projetos e, depois, a aprovar direto com o CEO. Rebrandings e manuais da <a href="#proativa">Proativa</a> e da <a href="#glpgas">GLP Gás</a>, 3 marcas novas e o <a href="#quiz32">Quiz 32 anos</a>.'],
+     ['2022 a 2024','Estagiário de design · PRODERJ','Comunicação, motion e identidades de eventos da empresa de tecnologia do Governo do RJ.'],
+     ['2020','Level designer · Rocket Dragon Games','Níveis e mecânicas de fase para o jogo autoral do estúdio, em trabalho remoto.']],
+ eduLabel:'Formação', edu:['<strong>Design, Mídia Digital</strong> · PUC-Rio, 2020 a 2025, CR 9,0','<strong>Pós em UX e IHC</strong> · PUC-Rio, em conclusão'],
+ toolsLabel:'Ferramentas', tools:['Figma','Illustrator','Photoshop','Premiere','After Effects','Unity e C#','Blender','HTML, CSS e JS','Miro','Canva'],
+ moveLabel:'O que me move', moveText:'Criatividade, senso crítico, humor e bem-estar. Amo design limpo, que entrega o que a pessoa precisa de um jeito fácil e didático, sem ela precisar pedir ajuda. Quero criar ideias e empresas que melhorem a vida das pessoas por meio da diversão, do entretenimento e do bem-estar. O humor aparece no <a href="#jacare">Jacaré na Pista</a> e no <a href="#semcomb">Sem Combustível</a>; o senso crítico, na pesquisa do <a href="#gastro">Gastromania</a> sobre folclore e na campanha <a href="#toca">Toca na Patinha</a>.',
+ offLabel:'Fora da tela', offText:'Adoro eventos: vou sempre ao Rock in Rio e curto muito a BGS e a Game XP. O estande que mais me marcou foi um em que você vira a garra de uma máquina de pegar bolinhas, controlada por um amigo. É esse tipo de experiência que eu adoraria projetar. Jogo com os amigos (Stardew Valley, Risk of Rain 2 e Portal 2 estão no topo), faço aulas de luta e passo horas mergulhado num projeto quando ele me engaja.',
+ xpLabel:'Onde tudo se encontra', xpTitle:'Jogos, marcas e experiências ao vivo', xpText:'Os projetos de que mais me orgulho juntam as três trilhas: mecânica de jogo, marca e gente reunida no mesmo lugar. É nesse cruzamento que eu quero trabalhar, de campanhas gamificadas a estandes interativos em eventos.',
+ langLabel:'Idiomas', langs:'Português nativo · Inglês avançado · Espanhol básico',
+ trackLabel:'Trilha', secretH:'Sob sigilo', secretNote:'<strong>Proativa Capital.</strong> Comecei com cada peça aprovada pela gestora de marketing. Em um mês, ela já confiava em mim para liderar os projetos e só aprovar o essencial; quando ela saiu, minhas aprovações passaram a ir direto para o CEO, que algumas vezes me chamou só para elogiar um trabalho. Além dos projetos acima, criei com a equipe o nome e a identidade de 3 marcas novas e cerca de 5 namings. Essas marcas ainda não foram lançadas e entram aqui depois do lançamento.',
+ back:'← Trilha', resumoAria:'Resumo do projeto', did:'O que eu fiz', result:'Resultado', watch:'Assista', nota:'Nas minhas palavras', ficha:'Ficha técnica', fichaAria:'Ficha do projeto', play:'Jogar no navegador', deeper:'Para se aprofundar', prev:'← Anterior', next:'Próximo →', nextAria:'Outros projetos da trilha', video:'Vídeo'},
+en:{sig:'ByDkHappy · Design that makes things easier and more fun', title:'Hugo Ceni · UX/UI, brand and game designer', navAria:'Portfolio tracks', designTab:'Design & Social', langAria:'Language',
+ contactAria:'Contact', contactLabel:'Contact', contactTitle:'Let\'s talk', contactText:'Open to on-site roles in Rio, remote roles and freelance contracts.', copy:'Copy email', copied:'Email copied', selected:'Selected, press Ctrl+C',
+ h1:['Interfaces','brands','and games'], heroP:'I\'m Hugo, a designer with a degree from PUC-Rio. My strength is spotting where a system breaks and fixing it fast, whether it\'s an app, a brand or a game table. I like functional design made with care, the kind nobody needs help to use. Pick the track that matches your role.',
+ photoAlt:'Hugo smiling in front of a colorful mosaic', whyLabel:'Why ByDkHappy?', whyText:'DK was the name of a team I had with some friends, and the initials stuck with me: they sound good and work like a Design Kit. Happy is my cat\'s name, after the cat from Fairy Tail.',
+ tilesCap:'ByDkHappy tiles', tilesClick:'Click to rotate', tileAria:'Rotate tile', projects:'projects',
+ trailAria:'Career', trailLabel:'Career', trailTitle:'Where I have worked',
+ tl:[['Since Jul 2026','Social media and designer · Freelance','Strategy, content and visual identity for a character artist and an architecture firm.'],
+     ['2026 · 6 months','Strategic and visual designer · Proativa Capital','All the visual work for the group\'s 4 companies. Within a month I was leading projects, later with approvals straight from the CEO. Rebrandings and guidelines for <a href="#proativa">Proativa</a> and <a href="#glpgas">GLP Gás</a>, 3 new brands and the <a href="#quiz32">32nd Anniversary Quiz</a>.'],
+     ['2022 to 2024','Design intern · PRODERJ','Communication, motion and event identities for the Rio de Janeiro state technology company.'],
+     ['2020','Level designer · Rocket Dragon Games','Levels and stage mechanics for the studio\'s original game, working remotely.']],
+ eduLabel:'Education', edu:['<strong>Design, Digital Media</strong> · PUC-Rio, 2020 to 2025, GPA 9.0/10','<strong>Postgrad in UX and HCI</strong> · PUC-Rio, finishing'],
+ toolsLabel:'Tools', tools:['Figma','Illustrator','Photoshop','Premiere','After Effects','Unity and C#','Blender','HTML, CSS and JS','Miro','Canva'],
+ moveLabel:'What drives me', moveText:'Creativity, critical thinking, humor and well-being. I love clean design that gives people what they need in an easy, self-explanatory way, without them having to ask for help. I want to create ideas and companies that improve people\'s lives through fun, entertainment and well-being. Humor shows up in <a href="#jacare">Jacaré na Pista</a> and <a href="#semcomb">Out of Fuel</a>; critical thinking in the <a href="#gastro">Gastromania</a> research on folklore and the <a href="#toca">Toca na Patinha</a> campaign.',
+ offLabel:'Off screen', offText:'I love events: I never miss Rock in Rio and I really enjoy BGS and Game XP. The booth that stuck with me most was one where you become the claw of a ball-grabbing machine, steered by a friend. That is the kind of experience I would love to design. I play games with my friends (Stardew Valley, Risk of Rain 2 and Portal 2 are at the top), I take martial arts classes and I can spend hours deep in a project that gets me engaged.',
+ xpLabel:'Where it all meets', xpTitle:'Games, brands and live experiences', xpText:'The projects I am proudest of bring the three tracks together: game mechanics, brand and people gathered in the same place. That intersection is where I want to work, from gamified campaigns to interactive booths at events.',
+ langLabel:'Languages', langs:'Portuguese (native) · English (advanced) · Spanish (basic)',
+ trackLabel:'Track', secretH:'Under NDA', secretNote:'<strong>Proativa Capital.</strong> I started with every piece approved by the marketing manager. Within a month, she trusted me to lead projects and only approve the essentials; when she left, my approvals went straight to the CEO, who sometimes called me in just to praise my work. Besides the projects above, I created the names and identities of 3 new brands with the team and around 5 namings. These brands have not launched yet and will be added here after launch.',
+ back:'← Track', resumoAria:'Project summary', did:'What I did', result:'Outcome', watch:'Watch', nota:'In my own words', ficha:'Project sheet', fichaAria:'Project sheet', play:'Play in the browser', deeper:'Go deeper', prev:'← Previous', next:'Next →', nextAria:'Other projects in this track', video:'Video'}
+};
+function mergeL(a, b){
+  if (b === undefined || b === null) return a;
+  if (typeof b === 'string') return b;
+  if (Array.isArray(a)) return a.map((v, i) => mergeL(v, Array.isArray(b) ? b[i] : undefined));
+  if (a && typeof a === 'object') { const o = {...a}; for (const k in b) o[k] = mergeL(a[k], b[k]); return o; }
+  return b;
+}
+let LANG = 'pt';
+try { LANG = localStorage.getItem('lang') || ((navigator.language || 'pt').toLowerCase().startsWith('pt') ? 'pt' : 'en'); } catch (e) { LANG = (navigator.language || 'pt').toLowerCase().startsWith('pt') ? 'pt' : 'en'; }
+if (LANG !== 'en') LANG = 'pt';
+let TRACKS, CASES, U;
+function applyLang(){
+  TRACKS = LANG === 'en' ? mergeL(TRACKS_PT, EN_DATA.TRACKS) : TRACKS_PT;
+  CASES = LANG === 'en' ? mergeL(CASES_PT, EN_DATA.CASES) : CASES_PT;
+  U = UI[LANG];
+  document.documentElement.lang = LANG === 'en' ? 'en' : 'pt-BR';
+  document.title = U.title;
+  document.getElementById('sig').textContent = U.sig;
+  document.querySelector('.tabs').setAttribute('aria-label', U.navAria);
+  document.querySelector('.tab[data-tab="design"] .tl-txt').textContent = U.designTab;
+  const g = document.querySelector('.lang'); g.setAttribute('aria-label', U.langAria);
+  g.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === LANG)));
+}
+
+const app = document.getElementById('app');
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ext = 'target="_blank" rel="noopener"';
+const sh = k => `<i class="shape ${SHAPE[k]}" aria-hidden="true"></i>`;
+const pad = n => String(n).padStart(2,'0');
+const listOf = t => t.cases.concat(t.extra ? t.extra.cases : []);
+
+function contact(){
+  return `<section class="contact" aria-label="${U.contactAria}">
+    <div><span class="mascot" aria-hidden="true"><svg viewBox="160 180 760 720"><g fill="none" stroke="#FDD817" stroke-width="56" stroke-linecap="round" stroke-linejoin="round"><path d="M303 271 L420 462 L227 573 C227 743, 370 838, 540 838 C710 838, 853 743, 853 573 L656 462 L776 268"/><path d="M424 706 Q540 777 657 706"/></g><g fill="#FDD817"><circle cx="303" cy="271" r="56"/><circle cx="776" cy="268" r="56"/></g></svg></span><br><span class="label">${U.contactLabel}</span><h2>${U.contactTitle}</h2><p>${U.contactText}</p></div>
+    <div class="act">
+      <span class="email" id="email">hgceni@gmail.com</span>
+      <button class="btn" id="copy" type="button">${U.copy}</button>
+      <a class="btn" href="https://www.linkedin.com/in/hugo-ceni/" ${ext}>LinkedIn</a>
+      <a class="btn" href="https://github.com/hugo-ceni" ${ext}>GitHub</a>
+    </div>
+  </section>`;
+}
+
+/* Azulejo: peças nas três cores da marca. Clicar gira a peça 90°. */
+const TILE_KINDS = [
+  `<path d="M0 0 H100 A100 100 0 0 1 0 100 Z" fill="var(--design)"/>`,
+  `<path d="M0 0 H100 V100 Z" fill="var(--games)"/>`,
+  `<rect width="50" height="50" fill="var(--ux)"/><rect x="50" y="50" width="50" height="50" fill="var(--ux-tint)"/>`,
+  `<path d="M0 0 A50 50 0 0 1 50 50 A50 50 0 0 1 0 100 Z" fill="var(--design)"/><path d="M100 0 V100 L50 50 Z" fill="var(--ux)"/>`
+];
+const LAYOUT = [0,1,2,0, 3,0,1,2, 2,1,0,3, 0,3,2,1];
+const ROT = [0,1,2,1, 0,2,3,0, 1,3,0,2, 3,0,1,2];
+function tilesHTML(){
+  return LAYOUT.map((k,i) => `<button class="tile" type="button" aria-label="${U.tileAria} ${i+1}" data-r="${ROT[i]}" style="transform:rotate(${ROT[i]*90}deg)"><svg viewBox="0 0 100 100" aria-hidden="true">${TILE_KINDS[k]}</svg></button>`).join('');
+}
+
+function home(){
+  document.body.dataset.track = '';
+  app.innerHTML = `
+    <section class="hero">
+      <div>
+        <span class="label">Designer · Rio de Janeiro · ByDkHappy</span>
+        <h1><span class="ln">${U.h1[0]} ${sh('ux')}</span><span class="ln">${U.h1[1]} ${sh('design')}</span><span class="ln">${U.h1[2]} ${sh('games')}</span></h1>
+        <p>${U.heroP}</p>
+        <div class="why"><img src="img/hugo.webp" alt="${U.photoAlt}"><p><span class="label">${U.whyLabel}</span> ${U.whyText}</p></div>
+      </div>
+      <div>
+        <div class="tiles" id="tiles">${tilesHTML()}</div>
+        <div class="tiles-cap label"><span>${U.tilesCap}</span><span>${U.tilesClick}</span></div>
+      </div>
+    </section>
+    <div class="rows">
+      ${['ux','design','games'].map(k => `
+        <a class="row" data-p="${k}" href="#${k}">
+          <span class="n">${TRACKS[k].n}</span>
+          <h2>${sh(k)}${esc(TRACKS[k].name)}</h2>
+          <p>${esc(TRACKS[k].line)} <span class="mono">${pad(listOf(TRACKS[k]).length)} ${U.projects}</span></p>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>`).join('')}
+    </div>
+    <section class="xp" aria-label="${U.xpLabel}">
+      <span class="label">${U.xpLabel}</span>
+      <h2>${U.xpTitle}</h2>
+      <p class="intro">${U.xpText}</p>
+      <div class="list">${['quiz32','maresea','colmeia'].map((id, i) => cardHTML(id, i+1)).join('')}</div>
+    </section>
+    <section class="trail" aria-label="${U.trailAria}">
+      <div>
+        <span class="label">${U.trailLabel}</span>
+        <h2>${U.trailTitle}</h2>
+        <ol class="tl">
+          ${U.tl.map(r => `<li><span class="when">${r[0]}</span><div><strong>${r[1]}</strong><span>${r[2]}</span></div></li>`).join('')}
+        </ol>
+      </div>
+      <div class="side">
+        <div><span class="label">${U.eduLabel}</span>${U.edu.map(e => `<p>${e}</p>`).join('')}</div>
+        <div><span class="label">${U.toolsLabel}</span><div class="tools">${U.tools.map(t => `<span class="fact">${t}</span>`).join('')}</div></div>
+        <div><span class="label">${U.moveLabel}</span><p>${U.moveText}</p></div>
+        <div><span class="label">${U.offLabel}</span><p>${U.offText}</p></div>
+        <div><span class="label">${U.langLabel}</span><p>${U.langs}</p></div>
+      </div>
+    </section>
+    ${contact()}`;
+  document.getElementById('tiles').addEventListener('click', e => {
+    const t = e.target.closest('.tile'); if (!t) return;
+    const r = +t.dataset.r + 1; t.dataset.r = r; t.style.transform = `rotate(${r*90}deg)`;
+  });
+}
+
+function cardHTML(id, n){
+  const c = CASES[id];
+  const year = (c.ficha.find(f => ['Ano','Período','Year','Period'].includes(f[0])) || ['', c.ficha[0][1]])[1];
+  return `<a class="item" href="#${id}">
+    <div class="media">${(c.video || c.videos) ? `<span class="vtag">${U.video}</span>` : ''}<img src="${c.thumb || c.img}" alt="${esc(c.alt)}" loading="lazy" style="object-position:${c.pos || '50% 50%'}"></div>
+    <div class="meta"><b>${pad(n)}</b><span>${esc(year)}</span></div>
+    <h3>${esc(c.title)}</h3><p>${esc(c.kicker)}</p>
+  </a>`;
+}
+
+function track(k){
+  const t = TRACKS[k];
+  document.body.dataset.track = k;
+  const items = t.cases.map((id, i) => cardHTML(id, i+1)).join('');
+  const extras = t.extra ? `<div class="sub"><h2>${t.extra.label}</h2></div><div class="list small">${t.extra.cases.map((id, i) => cardHTML(id, t.cases.length+i+1)).join('')}</div>` : '';
+  const proativa = k==='design' ? `<div class="sub"><h2>${U.secretH}</h2></div><p class="note">${U.secretNote}</p>` : '';
+  app.innerHTML = `
+    <section class="thero">
+      <div>
+        <span class="label">${U.trackLabel} ${t.n} / 03 · ${esc(t.name)}</span>
+        <h1>${t.title}</h1>
+        <p>${esc(t.intro)}</p>
+        <div class="facts">${t.facts.map(f => `<span class="fact">${esc(f)}</span>`).join('')}</div>
+      </div>
+      <div class="big" aria-hidden="true"></div>
+    </section>
+    <div class="list">${items}</div>
+    ${extras}
+    ${proativa}
+    ${contact()}`;
+}
+
+function kase(id){
+  const c = CASES[id], t = TRACKS[c.track];
+  document.body.dataset.track = c.track;
+  const list = listOf(t), i = list.indexOf(id);
+  const prev = list[(i - 1 + list.length) % list.length], next = list[(i + 1) % list.length];
+  const L = t.labels;
+  const sec = (title, inner) => inner ? `<section><h2>${sh(c.track)}${title}</h2>${inner}</section>` : '';
+  const resumo = c.resumo ? `<div class="resumo" aria-label="${U.resumoAria}">
+      ${[[L[0], c.resumo[0]],[U.did, c.resumo[1]],[U.result, c.resumo[2]]].map(r => `<div><span class="label">${esc(r[0])}</span><p>${esc(r[1])}</p></div>`).join('')}
+    </div>` : '';
+  const vfig = (v, poster) => `<figure class="vid${v[3] ? ' v' : ''}"><video controls preload="metadata" playsinline poster="${poster}"><source src="${v[0]}" type="video/mp4"></video><figcaption>${esc(v[1])}</figcaption></figure>`;
+  const video = c.video ? `<section><h2>${sh(c.track)}${U.watch}</h2>${vfig(c.video, 'img/poster_'+id+'.webp')}</section>`
+    : c.videos ? `<section><h2>${sh(c.track)}${U.watch}</h2><div class="vids">${c.videos.map(v => vfig(v, v[2])).join('')}</div></section>` : '';
+  const nota = c.nota ? `<blockquote class="nota"><span class="label">${U.nota}</span><p>${esc(c.nota)}</p></blockquote>` : '';
+  app.innerHTML = `
+    <a class="back" href="#${c.track}">${U.back} ${esc(t.name)}</a>
+    <header class="chead">
+      <div><span class="label">${esc(t.name)} · ${esc(c.ficha[0][1])}</span><h1>${esc(c.title)}</h1><p>${esc(c.kicker)}</p></div>
+      <span class="num" aria-hidden="true">${pad(i+1)}</span>
+    </header>
+    <div class="himg"><img src="${c.img}" alt="${esc(c.alt)}"></div>
+    ${resumo}
+    <div class="cbody">
+      <aside class="ficha" aria-label="${U.fichaAria}">
+        <span class="label">${U.ficha}</span>
+        <dl>${c.ficha.slice(1).map(f => `<div><dt class="label">${esc(f[0])}</dt><dd>${esc(f[1])}</dd></div>`).join('')}</dl>
+        ${c.play ? `<a class="btn" id="play" href="${c.play}" ${ext} hidden>${U.play} ↗</a>` : ''}
+        ${c.links ? `<div class="links"><span class="label">${U.deeper}</span>${c.links.map(l => `<a href="${l[1]}" ${ext}>${esc(l[0])} ↗</a>`).join('')}</div>` : ''}
+      </aside>
+      <div class="story">
+        ${sec(L[0], `<p>${esc(c.problema)}</p>`)}
+        ${nota}
+        ${sec(L[1], `<ol class="steps">${c.processo.map(s => `<li><div><strong>${esc(s[0])}</strong><span>${esc(s[1])}</span>${s[2] ? `<div class="stepimgs">${[].concat(s[2]).map(src => `<img src="${src}" alt="${esc(s[0])}" loading="lazy">`).join('')}</div>` : ''}</div></li>`).join('')}</ol>`)}
+        ${sec(L[2], c.validacao ? `<p>${esc(c.validacao)}</p>` + (c.tabelas || []).map(t => `<div class="tbl"><span class="label">${esc(t.title)}</span><div class="tblwrap"><table><thead><tr>${t.head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${t.rows.map(r => `<tr>${r.map(x => `<td>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`).join('') : '')}
+        ${sec(L[3], (c.metrics ? `<div class="stats">${c.metrics.map(m => `<div class="stat"><b>${esc(m[0])}</b><span>${esc(m[1])}</span></div>`).join('')}</div>` : '') + (c.resultado ? `<p>${esc(c.resultado)}</p>` : ''))}
+        ${video}
+        ${c.gallery ? `<div class="gallery">${c.gallery.map(g => `<figure><img src="${g[0]}" alt="${esc(g[1])}" loading="lazy"><figcaption>${esc(g[1])}</figcaption></figure>`).join('')}</div>` : ''}
+      </div>
+    </div>
+    <nav class="next" aria-label="${U.nextAria}">
+      <a href="#${prev}"><span class="label">${U.prev}</span><b>${esc(CASES[prev].title)}</b></a>
+      <a href="#${next}"><span class="label">${U.next}</span><b>${esc(CASES[next].title)}</b></a>
+    </nav>
+    ${contact()}`;
+}
+
+function checkPlay(){
+  const b = document.getElementById('play'); if (!b) return;
+  fetch(b.getAttribute('href'), {method:'HEAD'}).then(r => { if (r.ok) b.hidden = false; }).catch(() => {});
+}
+
+function route(){
+  const h = location.hash.slice(1);
+  if (TRACKS[h]) track(h); else if (CASES[h]) { kase(h); checkPlay(); } else home();
+  document.querySelectorAll('.tab').forEach(a => {
+    if (document.body.dataset.track === a.dataset.tab) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+  });
+  window.scrollTo(0, 0);
+}
+
+app.addEventListener('click', e => {
+  if (e.target.id !== 'copy') return;
+  const btn = e.target, email = document.getElementById('email');
+  const done = () => { btn.textContent = U.copied; setTimeout(() => btn.textContent = U.copy, 2000); };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents(email); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = U.selected; };
+  try { navigator.clipboard.writeText('hgceni@gmail.com').then(done, fallback); } catch (err) { fallback(); }
+});
+
+document.querySelector('.lang').addEventListener('click', e => {
+  const b = e.target.closest('button[data-lang]'); if (!b || b.dataset.lang === LANG) return;
+  LANG = b.dataset.lang; try { localStorage.setItem('lang', LANG); } catch (err) {}
+  const y = window.scrollY; applyLang(); route(); window.scrollTo(0, y);
+});
+
+window.addEventListener('hashchange', route);
+applyLang();
+route();
+</script>
+
+</body>
+</html>
